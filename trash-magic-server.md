@@ -1,135 +1,18 @@
-![](qrcode.png)
-![](qrcode-page.png)
+[edit this file](edit-markdown-file.php?filename=trash-magic-server.md)
 
- - [index.html](index.html)
- - [edit-html.html](edit-html.html)
- - [edit-php.html](edit-php.html)
- - [branch.html](branch.html)
- - [read-book.html](read-book.html)
- - [copy.php?from=album.html&to=index.html](copy.php?from=album.html&to=index.html)
+[edit-book.html](edit-book.html)
 
-### [read-markdown-file.php?filename=book.md](read-markdown-file.php?filename=book.md)
-
-## [TRASH MAGIC HANDBOOK](https://github.com/lafelabs/TRASH-MAGIC-HANDBOOK)
-
-## [LOCALHOST/TRASH-MAGIC-HANDBOOK](http://localhost/TRASH-MAGIC-HANDBOOK/)
-
-TRASH MAGIC IS SELF-REPLICATING MEDIA ON THE [WORLD WIDE WEB](https://en.wikipedia.org/wiki/World_Wide_Web). SETS OF FILES REPLICATE FROM WEB SERVER TO WEB SERVER, SPREADING MEDIA AND THE TECHNOLOGY WHICH SUPPORTS THE MEDIA TOGETHER AS A UNIFIED WHOLE.  [PHP](https://en.wikipedia.org/wiki/PHP) SCRIPTS COMMUNICATE WITH THE SERVER SIDE FILE SYSTEM, [LOADING](php/load-file.txt), [SAVING](php/save-file.txt), [LISTING](php/list-files.txt), AND [DELETING](php/delete-file.txt)  FILES OF ALL KINDS, INCLUDING THE PHP SCRIPTS THEMSELVES. 
-
-THE [SET](https://en.wikipedia.org/wiki/Set_(mathematics)) OF FILES CONTIANED HERE REPRESENTS A SELF-REPLICATING SET. THAT SET INLUDES THE PHYSICAL SERVERS, THE SOFTWARE WHICH RUNS ON THOSE SERVERS, THE PEOPLE WHO REPLICATE THE SERVERS, THE MEDIA WHICH TELLS PEOPLE HOW TO REPLICATE THE SERVERS, AND THE SOCIAL STRUCTURES WHICH SUPPORT REPLICATION.  WE TAKE "SET" TO BE AN ABSTRACT COLLECTION OF ELEMENTS IN THE MOST GENERAL MATHEMATICAL SENS HERE.  THAT IS TO SAY, TRASH MAGIC IS A MATHEMATICAL FRAMEWORK FOR INTERACTING WITH SELF-REPLICATING SETS OF WHICH WE ARE ELEMENTS!
-
-A PHP [SCRIPT CALLLED generate-dna.php](php/generate-dna.txt) GENERATES A [JSON](https://en.wikipedia.org/wiki/JSON) FILE CALLED THE DNA([dna.txt](dna.txt)), WHICH LISTS ALL THE FILES IN THE SET.  THIS JSON FILE IS USED BY THE PHP SCRIPT [replicator.php](php/replictor.txt), WHICH USES THAT LIST OF FILES TO COPY THE WHOLE SET FROM SERVER TO SERVER USING ONLY CLIENT SIDE ACTIONS! 
-
-VARIUS EDITOR APPLICATIONS EDIT EVERY ELEMENT OF THE SET OF FILES.  THE MAIN FILE [index.html](index.html) IS EDITED USING AN HTML EDITOR [edit-index.html](edit-index.html), THE WHOLE SET OF FILES IN THE MAIN FOLDER ARE EDITED USING [edit-html.html](edit-html.html), AND THE PHP FILES ARE EDITED IN THE [php/](php/) FOLDER WITH [edit-php.html](edit-php.html).
-
-TRASH MAGIC SERVERS ARE USED TO SPREAD FREE MEDIA ON FREE SOFTWARE THAT RUNS ON FREE HARDWARE VIA THE PHYSICAL NETWORKS OF THE WORLD. WE TAKE OLD COMPUTERS MADE USELESS BY THE PLANNED OBSOLESCENCE OF BIG TECH AND PUT FREE SOFTWARE ON THEM WHICH BOTH CREATES AND SHARES MEDIA ON LOCAL NETWORKS. WE THEN DISRIBUTE THESE SERVERS FROM CARTS ALONG THE STREETS AND HIGHWAYS AND TRASNSIT LINES OF THE WORLD.  
-
-THIS IS A PHYSICAL NETWORK OF FREE MEDIA DISTRIBUTION USING SELF-REPLICATING CODE.
+[read book](read-book.html)
 
 
-## LANGUAGE ELEMENTS OF TRASH MAGIC SERVERS
+# Trash Magic Server
 
- - [HTML](https://en.wikipedia.org/wiki/HTML)
- - [PHP](https://en.wikipedia.org/wiki/PHP)
- - [JAVASCRIPT](https://en.wikipedia.org/wiki/JavaScript)
- - [CSS](https://en.wikipedia.org/wiki/CSS)
- - [JSON](https://en.wikipedia.org/wiki/JSON)
- - [MARKDOWN](https://en.wikipedia.org/wiki/Markdown)
+ - ubuntu
+ - apache
+ - php
+ - trash magic server set
+ - ubuntu studio
 
-## OPERATING SYSTEM ELEMENTS OF TRASH MAGIC SERVERS
-
- - [UBUNTU STUDIO FREE MEDIA OPERATING SYSTEM](https://ubuntustudio.org/)
- - [XAMPP LOCAL PRIVATE WEB SERVER SOFTWARE](https://www.apachefriends.org/)
- - [CLOUD HOSTING AT EASYDNS.COM](https://easydns.com/)
- - [LOCAL SERVERS ON ANDROID WITH KSWEB](https://play.google.com/store/apps/details?id=ru.kslabs.ksweb&hl=en_US)
- - [RASPBERRY PI SERVERS](https://www.raspberrypi.com/)
- - [APACHE WEB SERVER](https://www.apache.org/)
-
-## LIVE LINKS OF TRASH MAGIC ON LOCAL INSTANCES
-
- - [index.html](index.html)
- - [qrcode.html](qrcode.html)
- - [edit-html.html](edit-html.html)
- 
-## PHYSICAL ELEMENTS OF SERVER NETWORK
-
- - BOOK SHOPS
- - STREETS/HIGHWAYS
- - PUBLIC TRANSIT NETWORKS
- - LIBRARIES
- - SHOPPING CARTS
- - CARDBOARD SIGNS
- - MOBILE SOLAR POWER STATIONS
- - TRASH MAGICIANS
- - TEXTILE HYPERLINKS(BLACK FLAGS)
- - PRINTED QR CODES
- - URLS WRITTEN ON TRASH WITH MARKER OR PAINT PEN
- - PHYSICAL SERVERS BUILT FROM TRASH
- - PHYSICAL SERVERS BUILT FROM RASPBERRY PI
- - PHYSICAL SERVERS ON PRIVATE COMPUTERS ON PRIVATE NETWORKS
-
-
-## HTML AND TEXT FILES:
-
-  - [README.md](README.md)
-  - [album.html](album.html)
-  - [branch.html](branch.html)
-  - [delete-html.html](delete-html.html)
-  - [delete-php.html](delete-php.html)
-  - [dna.txt](dna.txt)
-  - [edit-html.html](edit-html.html)
-  - [edit-index.html](edit-index.html)
-  - [edit-php.html](edit-php.html)
-  - [edit-qrcode-list.html](edit-qrcode-list.html)
-  - [freebox.html](freebox.html)
-  - [geometron-squares.html](geometron-squares.html)
-  - [geometron.js](geometron.js)
-  - [index.html](index.html)
-  - [math.html](math.html)
-  - [pdf-library.html](pdf-library.html)
-  - [qrcode-list.html](qrcode-list.html)
-  - [qrcode-list.txt](qrcode-list.txt)
-  - [qrcode-page.html](qrcode-page.html)
-  - [qrcode.html](qrcode.html)
-  - [readme.html](readme.html)
-  - [set.html](set.html)
-  - [squares.html](squares.html)
-  - [track-list.js](track-list.js)
-  - [trash-magic.html](trash-magic.html)
-  - [trashmagic.css](trashmagic.css)
-  - [trashmagic.js](trashmagic.js)
-  - [trashset.txt](trashset.txt)
-  - [wall.txt](wall.txt)
-  - [web.html](web.html)
-
-## PHP CODE AS RAW TEXT:
-
-  - [php/branch.txt](php/branch.txt)
-  - [php/compile-php.txt](php/compile-php.txt)
-  - [php/copy.txt](php/copy.txt)
-  - [php/delete-branch.txt](php/delete-branch.txt)
-  - [php/delete-file.txt](php/delete-file.txt)
-  - [php/generate-dna.txt](php/generate-dna.txt)
-  - [php/list-branches.txt](php/list-branches.txt)
-  - [php/list-files.txt](php/list-files.txt)
-  - [php/load-file.txt](php/load-file.txt)
-  - [php/local-replicator.txt](php/local-replicator.txt)
-  - [php/replicator.txt](php/replicator.txt)
-  - [php/save-file.txt](php/save-file.txt)
-  - [php/save-png.txt](php/save-png.txt)
-  - [php/upload-image.txt](php/upload-image.txt)
-
-## INSTALL TRASH MAGIC ON PRIVATE MACHINE
-
-TO INSTALL TRASH MAGIC ON A WINDOWS OR MAC MACHINE RATHER THAN A LIBERATED LINUX MACHINE, WE WILL USE XAMPP, A LOCAL WEB SERVER WHICH HAS PHP SUPPORT BUILT IN. 
-
-[DOWNLOAD AND INSTALL XAMPP HERE AT THIS LINK](https://www.apachefriends.org/)
-
-ONCE IT IS INSTALLED, IT WILL SET UP A WEB SERVER IN THE FOLDER "c:\xampp\htdocs" ON WINDOWS. I'M NOT SURE WHAT FOLDER ON MAC.  THEN DOWNLOAD THE REPLICATOR AT [THIS LINK TO GITHUB](https://github.com/LafeLabs/TRASH-MAGIC-SERVER/blob/main/replicator.php) AND PLACE IT IN THE CORRECT FOLDER. ONCE THAT FILE IS IN THE FOLDER, YOU CAN RUN THE REPLICATOR SCRIPT BY CLICKING ON THE FOLLOWING LINK:
-
-[http://localhost/replicator.php](http://localhost/replicator.php)
-
-TO BUILD YOUR OWN TRASH MAGIC CODE REPOSITORIES, INCLUDING CLONES OF THIS ONE, SET YOUR GIT FOLDER THAT YOU DO DEVELOPMENT IN TO BE A SUB FOLDER OF "c:\xampp\htdocs" AND YOU WILL BE ABLE TO NAVIGATE FROM THE TOP TRASH MAGIC PAGE INTO ANY NUMBER OF PAGES YOU MAKE BELOW THAT LEVEL IN YOUR FOLDER TREE.
 
 ## REPLICATE A TRASH MAGIC SERVER
 
@@ -345,5 +228,4 @@ USE FREE MEDIA TO GROW COMMUNITY!
 
 1. EVERYTHING FREE FOR EVERYONE EVERYWHERE RIGHT NOW!
 2. NO ONE IS FREE UNTIL EVERYONE IS FREE!
-
-
+ 
