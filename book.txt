@@ -2,6 +2,7 @@
     "README.md",
     "album.md",
     "book.md",
+    "css.md",
     "html.md",
     "intro.md",
     "javascript.md",

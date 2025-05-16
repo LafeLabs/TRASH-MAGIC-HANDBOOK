@@ -4,7 +4,7 @@
  - [edit-index.html](edit-index.html)
 
 
-# The Trash Magic Book
+# THE TRASH MAGIC HANDBOOK!
 
  1. [What is Trash Magic?](read-markdown-file.php?filename=intro.md)
  4. [The Organic Web](read-markdown-file.php?filename=organic-web.md)
@@ -19,6 +19,7 @@
  12. [The Voice of the Soil](read-markdown-file.php?filename=voice-of-the-soil.md)
  13. [The Path of the Trash Magician](read-markdown-file.php?filename=trash-magician.md)
  14. [The Global Trash Magic Revolution](read-markdown-file.php?filename=revolution.md)
+ 15. [TRASH MAGIC CSS](read-markdown-file.php?filename=css.md)
  
 
 ## Trash Magic Action Links

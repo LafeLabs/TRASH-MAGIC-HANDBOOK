@@ -10,7 +10,7 @@
 
 ### [read-markdown-file.php?filename=book.md](read-markdown-file.php?filename=book.md)
 
-## [TRASH MAGIC HANDBOOK](https://github.com/lafelabs/TRASH-MAGIC-HANDBOOK)
+## [THE TRASH MAGIC HANDBOOK](https://github.com/lafelabs/TRASH-MAGIC-HANDBOOK)
 
 ## [LOCALHOST/TRASH-MAGIC-HANDBOOK](http://localhost/TRASH-MAGIC-HANDBOOK/)
 

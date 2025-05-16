@@ -6,6 +6,7 @@
         "book.md",
         "book.txt",
         "branch.html",
+        "css.md",
         "delete-html.html",
         "delete-markdown.html",
         "delete-php.html",
