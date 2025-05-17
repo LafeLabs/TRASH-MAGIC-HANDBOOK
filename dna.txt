@@ -40,6 +40,8 @@
         "revolution.md",
         "set.html",
         "squares.html",
+        "tarot.html",
+        "tarot.js",
         "the-street.md",
         "the-watershed.md",
         "track-list.js",

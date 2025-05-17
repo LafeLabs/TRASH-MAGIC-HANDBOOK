@@ -13,6 +13,10 @@ DIRT WIZARD IS UNSKILLED WITH CSS, HOWEVER!
 
 THIS IS VERY CRUDE CSS!
 
+CSS CAN BE CAPS OR LOWER CASE IN MOST SITUATIONS!
+
+## USEFUL LINKS
+
  - [CSS WIKIPEDIA PAGE](https://en.wikipedia.org/wiki/CSS)
  - [W3 SCHOOLS CSS TUTORIAL](https://www.w3schools.com/css/)
  - [MOZILLA DEVELOPER NETWORK CSS INFO](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -20,4 +24,18 @@ THIS IS VERY CRUDE CSS!
  - [SEE AMAZING CSS ART SHARED FREELY ON CODE PEN](https://codepen.io/)
  - [trashmagic.css](trashmagic.css)
  
+## TRASH MAGIC CSS CODE
+
+COMIC SANS!
+
+ALL CAPS!
+
+CARDBOARD SIGNS!
+
+```
+BODY{
+    FONT-FAMILY:COMIC SASN MS;
+}
+```
+
  
