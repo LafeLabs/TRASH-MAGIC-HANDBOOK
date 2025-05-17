@@ -38,6 +38,7 @@
         "read-book.html",
         "readme.html",
         "revolution.md",
+        "riffs.html",
         "set.html",
         "squares.html",
         "tarot.html",

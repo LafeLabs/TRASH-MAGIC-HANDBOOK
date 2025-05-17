@@ -711,11 +711,214 @@ The list of URLS and text elements stored in qrcode-list.txt is edited with the 
 If we want to create music players, we can use a free open source JavaScript Library called [track-list.js](https://github.com/mirisuzanne/track-list) to play tracks in order and provide a user interface for play, rewind and so on.  Alternatively, we can use the [WebAmp](https://webamp.org/)
  JavaScript library.  
  
- 
- 
-## P5.js and p5sound.js
+We have included a copy of this small library on every copy of this book, at [track-list.js](track-list.js) locally.  To use this local copy of the library, add the following code to the head element of the html document that you want to build a music player into:
 
-P5JS is one of the most powerful technologies ever created. 
+```
+<script type="module" src="track-list.js"></script>   
+```
+
+The main Trash Magic app that uses this library is [album.html](album.html).  This album app has a div called tracklist in the body as follows:
+
+```
+<div id = "tracklist"></div>
+```
+
+And this div gets populated by a track-list element that has all the tracks using the following JavaScript code:
+
+
+```
+tracks = [];
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        tracks = JSON.parse(this.responseText);
+        listhtml = "<track-list>\n";
+        listhtml += "  <ol slot = \"tracks\">\n";
+        for(var index = 0;index < tracks.length;index++){
+            if(tracks[index].substring(tracks[index].length-4,tracks[index].length) == ".mp3" || tracks[index].substring(tracks[index].length-4,tracks[index].length) == ".wav"){
+                listhtml += "    <li>\n";
+                listhtml += "      <strong>" + tracks[index] + "</strong>\n";
+            listhtml += "      <audio controls src = \"" + tracks[index] + "\"></audio>\n";
+                listhtml += "    </li>\n";                
+            }
+
+        }
+        listhtml += "  </ol>\n";
+        listhtml += "</track-list>";
+        document.getElementById("tracklist").innerHTML = listhtml;
+        rainbow(document.getElementsByTagName("li"));
+
+    }
+};
+
+httpc.open("GET", "list-files.php", true);
+httpc.send();
+    
+```
+ 
+To do: add back a version of the player that uses webamp.js!
+ 
+
+## P5.js and p5.sound.js
+
+P5JS is one of the most powerful technologies ever created. It is a library built to make it easier for artists and musicians to create and share apps using the power of the world wide web.  It can be used to create a very wide range of apps, is really a whole language unto itself.  p5jsound is the sound side, and allows us to both create sounds in a web browser and also turn sounds into mathematical objects in JavaScript which we can work with to do absolutely anything we want!  
+
+When in doubt about anything related to p5js, always refer back to the project web site at:
+
+### [https://p5js.org/](https://p5js.org/)
+
+To see how p5js works in Trash Magic, we will show how the [squares.html](squares.html) Trash Magic social media app works.
+
+This allows a user to create a virtual cardboard square and share it on a Trash Magic server with other users of the server.  This is the virtual representation of the 4 inch cardboard squares discussed elsewhere in this manuscript.
+
+To invoke p5js we inlude the following line in the head element of the html file for our app:
+
+```
+<script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+```
+
+We do not need to put any html elements into the body of the document in order to make this work.  P5js will create an element called "main" which will have a [canvas element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas) in it which will be where all the magic happens.
+
+To draw stuff, we will have an array of arrays, where each sub-array is an array of points that make up a continuous line, and then all the lines together make up the larger array that is the figure.
+
+To start all this, in the script element we put the following code near the top:
+
+```
+lineArrayStack = [];
+lineArray =[];
+```
+
+Invoking the anarchist principle of code design that global variables are always a good idea.
+
+The way p5js works is that a function called "setup()" always runs once when the page loads, and then another function called draw() runs an infinite loop, with roughly 15-30 frames per second.  
+
+We create a canvas based on the detected screen size of the user device with the following JavaScript code:
+
+
+```
+function setup() {
+    squareWidth = 100;
+    if(innerWidth > innerHeight){
+        squareWidth = innerHeight;
+    }
+    else{
+        squareWidth = innerWidth;
+    }
+    createCanvas(squareWidth-50, squareWidth-70);
+    background(159,135,103);
+    stroke(0);
+    strokeWeight(30);
+}
+```
+
+This also sets the background to be the color of cardboard, which has RGB value (159,135,103).  We then set the color of lines to black with "stroke(0)" and the weight to a very wide 30 px with "strokeWeight(30)".  Creating the canvas is done with the createCanvas command.
+
+Now, to draw, we add the following draw function to the same script element:
+
+```
+inLine = false;
+newimage = false;
+function draw() {
+  if (mouseIsPressed === true) {
+    line(mouseX, mouseY, pmouseX, pmouseY);
+    inLine = true;
+    var r  ={};
+    r.x = mouseX;
+    r.y = mouseY;
+    lineArray.push(r);
+  }
+  else{
+      if(inLine){
+          lineArrayStack.push(lineArray);
+          lineArray = [];
+      }
+      inLine = false;
+  }
+}
+```
+
+This code uses the incredibly useful variables mouseX and mouseY, which are the current position of the mouse pointer of the user.  We only add points when the mouse is pressed, which is not great with a mouse but really great with a touch screen, especially on mobile. All we need to do to build up shapes based on user input drawing is create arrays of arrays of JSON objects with an x and y coordinate.  This is one of many examples of using JSON as the basis of novel social media platforms.
+
+There are then a set of buttons in the app to clear the symbol, delete one marking in the symbol, or save the symbol to the feed. The buttons' functions are in the following JavaScript:
+
+```
+document.getElementById("deletebutton").onclick = function(){
+    lineArrayStack.pop();
+    lineArrayStack.pop();
+    clear();
+    background(159,135,103);
+    for(var lineindex = 0;lineindex < lineArrayStack.length;lineindex++){
+        for(var pointindex = 1;pointindex < lineArrayStack[lineindex].length;pointindex++){
+            line(lineArrayStack[lineindex][pointindex - 1].x,lineArrayStack[lineindex][pointindex - 1].y,lineArrayStack[lineindex][pointindex].x,lineArrayStack[lineindex][pointindex].y);
+        }
+    }
+}
+
+
+
+document.getElementById("clearbutton").onclick = function(){
+    lineArrayStack = [];
+    clear();
+    background(159,135,103);
+}
+
+document.getElementById("postbutton").onclick = function(){
+
+    png64 = document.getElementById("defaultCanvas0").toDataURL("image/png");
+    var timestamp = Math.round((new Date().getTime())/1000).toString();
+    var httpc = new XMLHttpRequest();
+    
+    var url = "save-png.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(png64.substring(22))+"&filename=square" + timestamp +  ".png");//send text to filesaver.php
+     //location.reload(); 
+     
+    newfilename = "square" + timestamp +  ".png";
+    
+    var newbox = document.createElement("DIV");
+    newbox.classList.add("imagebox");         
+    
+    var deletespan = document.createElement("SPAN");
+    deletespan.innerHTML = "X";
+    deletespan.classList.add("deletespan");
+    deletespan.onclick = function(){
+        //delete the parent div of the image
+        //delete the file
+        var filename = this.parentElement.getElementsByClassName("filelabel")[0].innerHTML; 
+        var httpc = new XMLHttpRequest();
+        var url = "delete-file.php";         
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send("filename=" + filename);//send text to deletefile.php
+        this.parentElement.parentElement.removeChild(this.parentElement);
+    }
+    
+    newbox.appendChild(deletespan);
+
+    var newdiv = document.createElement("DIV");
+    newdiv.innerHTML = newfilename;
+    newdiv.className = "filelabel";
+    newbox.appendChild(newdiv);
+
+    var newimg = document.createElement("IMG");
+    newimg.src = png64;
+    newimg.classList.add("uploadimage");
+    newimg.classList.add("button");
+    newbox.appendChild(newimg);    
+
+
+    document.getElementById("feedscroll").insertBefore(newbox,document.getElementById("feedscroll").getElementsByClassName("imagebox")[0]);
+    
+    
+    
+}
+
+```
+
+We will not pick apart every line of this code in this chapter, but it's included for completeness here as a prototype for saving png files from canvas elements created either with p5js or any other JavaScript which works with canvas elements(of which there are quite a few!)
+
+p5.sound.js will be dealt with in greater detail elsewhere, and is beyond the scope of this chapter.
 
 ## Math and physics in JavaScript
 
