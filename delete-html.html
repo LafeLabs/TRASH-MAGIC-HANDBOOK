@@ -25,37 +25,32 @@ destroy files
     <h1 style = "color:red;font-size:3em">DESTROYER</h1>
 </div>
     
-<div id = "imagefeed"></div>
+<div id = "feed"></div>
 
 <script>
 
-uploadImages = [];
-
+files = [];
 var httpcUpload = new XMLHttpRequest();
 httpcUpload.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        uploadImages = JSON.parse(this.responseText);
-        loadimagefeed();
+        files = JSON.parse(this.responseText);
+        loadfeed();
     }
 };
 httpcUpload.open("GET", "list-files.php", true);
 httpcUpload.send();
 
 
-function loadimagefeed(){
-
-    for(var index = 0;index < uploadImages.length;index++) {
-        if(uploadImages[index].includes(".") && uploadImages[index] != "index.html" && (uploadImages[index].substring(uploadImages[index].length - 5) == ".html") || (uploadImages[index].substring(uploadImages[index].length - 4) == ".css") || (uploadImages[index].substring(uploadImages[index].length - 4) == ".txt")  || (uploadImages[index].substring(uploadImages[index].length - 3) == ".js") || (uploadImages[index].substring(uploadImages[index].length - 3) == ".md") || (uploadImages[index].substring(uploadImages[index].length - 3) == ".MD")){
+function loadfeed(){
+    for(var index = 0;index < files.length;index++) {
+        if(files[index].includes(".") && files[index] != "index.html" && (files[index].substring(files[index].length - 5) == ".html") || (files[index].substring(files[index].length - 4) == ".css") || (files[index].substring(files[index].length - 4) == ".txt")  || (files[index].substring(files[index].length - 3) == ".js") || (files[index].substring(files[index].length - 3) == ".md") || (files[index].substring(files[index].length - 3) == ".MD")){
             var newuploadbox = document.createElement("DIV");
-            newuploadbox.classList.add("imagebox");
-    
-            document.getElementById("imagefeed").appendChild(newuploadbox);
-    
+            newuploadbox.classList.add("filebox");
+            document.getElementById("feed").appendChild(newuploadbox);
             var newdiv = document.createElement("DIV");
-            newdiv.innerHTML = uploadImages[index];
+            newdiv.innerHTML = files[index];
             newdiv.className = "filelabel";
             newuploadbox.appendChild(newdiv);
-        
         
             var newspan = document.createElement("SPAN");
             newspan.innerHTML = "X";
@@ -71,9 +66,6 @@ function loadimagefeed(){
                 httpc.send("filename=" + filename);//send text to delete-file.php
                 this.parentElement.parentElement.removeChild(this.parentElement);
             }           
-            
-            
-            
         }
     }    
 }
@@ -115,7 +107,7 @@ h1{
     padding-left:1em;
     height:8em;
 }
-#imagefeed{
+#feed{
     position:absolute;
     top:10em;
     left:0px;
@@ -129,7 +121,7 @@ h1{
     display:block;
     background-color:#808080;
 }
-.imagebox{
+.filebox{
     border-top:solid;
     padding-bottom:1em;
     padding-top:1em;

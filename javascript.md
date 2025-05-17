@@ -2,7 +2,7 @@
 
 ## [home](index.html)
 
-# JAVASCRIPT
+# TRASH MAGIC JAVASCRIPT
 
 JAVASCRIPT IS THE LANGUAGE WHICH DOES ACTIONS IN A WEB DOCUMENT.  WE USE JAVASCRIPT TO MAKE "APPLICATIONS" ALSO KNOWN AS "APPS" THAT CAN RUN IN A WEB BROWSER.  JAVSCRIPT IS A "C-LIKE LANGUAGE" IN THAT IT LOOKS LIKE THE MUCH OLDER LANGUAGE KNOWN AS C.  JAVASCRIPT IS NOT RELATED TO JAVA.  WE CAN ADD JAVASCRIPT CODE ANYWHERE IN AN HTML DOCUMENT WITH THE "SCRIPT" TAG.  JAVASCRIPT IS ONE OF THE THREE CORE LANGUAGES OF THE WORLD WIDE WEB, ALONG WITH [HTML](https://en.wikipedia.org/wiki/HTML) AND [CSS](https://en.wikipedia.org/wiki/CSS).
 
@@ -147,17 +147,51 @@ Now we have the tools to load any file, be it a text or code file or a JSON file
 To understand how we delete files, let's take a look at the Trash Magic app [delete-html.html](delete-html.html).  This starts with a code snippet that also gets us the very important function of listing files:
 
 ```
-uploadImages = [];
-
+files = [];
 var httpcUpload = new XMLHttpRequest();
 httpcUpload.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        uploadImages = JSON.parse(this.responseText);
-        loadimagefeed();
+        files = JSON.parse(this.responseText);
+        loadfeed();
     }
 };
 httpcUpload.open("GET", "list-files.php", true);
 httpcUpload.send();
+
 ```
 
-This is how we fetch a list of files. We use the Trash Magic PHP script [list-files.php](php/list-files.txt)
+This is how we fetch a list of files. We use the Trash Magic PHP script [list-files.php](php/list-files.txt) to deliver a JSON array of strings, each of which is the name of a file.  This is then stuck in a global JSON array variable we call files.  Some people do not like global variables, but those people are perhaps too invested in the propertarian world view and have not fully embraced anarchist web development ideas.  When a user loads a web page into a web browser, that document becomes their entire reality.  It is an act of supreme hubris to declare global variables all the time, but that is totally justified by the power of this medium(HTML).  That global variable is then available for the function loadfeed() to do what it does.  
+
+Next, we have a function which takes the list of files and generates a feed of text elements in a user's web browser which is a list of all files on the system along with a DELETE button which is a big red "X":
+
+```
+function loadfeed(){
+    for(var index = 0;index < files.length;index++) {
+        if(files[index].includes(".") && files[index] != "index.html" && (files[index].substring(files[index].length - 5) == ".html") || (files[index].substring(files[index].length - 4) == ".css") || (files[index].substring(files[index].length - 4) == ".txt")  || (files[index].substring(files[index].length - 3) == ".js") || (files[index].substring(files[index].length - 3) == ".md") || (files[index].substring(files[index].length - 3) == ".MD")){
+            var newuploadbox = document.createElement("DIV");
+            newuploadbox.classList.add("filebox");
+            document.getElementById("feed").appendChild(newuploadbox);
+            var newdiv = document.createElement("DIV");
+            newdiv.innerHTML = files[index];
+            newdiv.className = "filelabel";
+            newuploadbox.appendChild(newdiv);
+        
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = "X";
+            newuploadbox.appendChild(newspan);
+            newspan.classList.add("button");
+            newspan.classList.add("deletebutton");
+            newspan.onclick = function(){
+                var filename = this.parentElement.getElementsByClassName("filelabel")[0].innerHTML; 
+                var httpc = new XMLHttpRequest();
+                var url = "delete-file.php";         
+                httpc.open("POST", url, true);
+                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                httpc.send("filename=" + filename);//send text to delete-file.php
+                this.parentElement.parentElement.removeChild(this.parentElement);
+            }           
+        }
+    }    
+}
+
+```
