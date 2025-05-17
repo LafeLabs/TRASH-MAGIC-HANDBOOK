@@ -195,3 +195,215 @@ function loadfeed(){
 }
 
 ```
+
+This function creates a set of [div elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div), one for each file on the system, which have two [span elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/span), one for the file name and one for the delete button which is a big red X.  To make the DELETE buttons into buttons we use the ["onclick" function](https://www.w3schools.com/jsref/event_onclick.asp) on the ["click" event](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) which is built into JavaScript. When a delete button is clicked, the code once again creates a XMLHttpRequest to pass information between the front end and back end of the system, and engages with the trash magic PHP script [delete-file.php](php/delete-file.txt), which deletes the file. Also, this bit of code deletes the object from the DOM(Document Object Model) in the HTML document, removing it from what the users sees. The effect of this is that clicking a delete button INSTANTLY and IRREVERSIBLY deletes a file and aloso removes any record of it existing from the system, and removes it from a user's view!
+
+Some readers may find this shocking. It is an extreme position to take as an information system designer that all users on the system are able to instantly delete all files.  But this is absolutely essential for the long term health and survival of the network.  Making it easy and fast to delete is how we protect the system from influx of bad information.  If you want good content to survive, you replicate it fast and far. If it replicates, and bad content is deleted, the overall flow is for things to get better over time. We recall some of the laws of trash magic, which are that 
+
+1. everything replicates
+2. everything evolves
+3. everything dies
+
+
+Media death is an important part of organic media being a functioning media ecosystem.
+
+## Ace.js and Code Editors
+
+We now have a bare bones system for loading, saving, and deleting arbitrary files. But in order to build a fully organic information technology system, we also want to be able to edit code using software that knows something about whateve language we are editing the code of. To do this, we use the JavaScript library [Ace.js](https://ace.c9.io/), which has syntax highlighting for a wide range of commonly used languages, including all of the ones we use here.  Ace is a huge help in building Trash Magic! Without it, we would not be able to build such a light weight system for self-editing of code.  
+
+We have constructed several code editing apps in Trash Magic.  They are the following:
+
+ - [edit-index.html](edit-index.html)
+ - [edit-html.html](edit-html.html)
+ - [edit-book.html](edit-book.html)
+ - [edit-php.html](edit-php.html)
+ 
+Taken together, the code editors of Trash Magic are a totally self-contained self-editing set of files!  edit-html.html literally edits itself. 
+
+To use the Ace.js library, we add the following code snippet to the "head" element of the document:
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+```
+
+Then to make an editor, we create the following bit of HTML in the body of the document:
+
+```
+<div id="maineditor" contenteditable="true" spellcheck="false"></div>
+```
+
+And then we create an editor by use of the following JavaScript code:
+
+```
+
+editor = ace.edit("maineditor");
+editor.setTheme("ace/theme/github");
+//editor.setTheme("ace/theme/vibrant_ink");
+editor.getSession().setMode("ace/mode/html");
+editor.getSession().setUseWrapMode(true);
+editor.$blockScrolling = Infinity;
+editor.setTheme("ace/theme/vibrant_ink");
+```
+
+To load the file into the editor we use the following code:
+
+```
+currentFile = "index.html";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        filedata = this.responseText;
+        setmode();
+        editor.setValue(filedata);
+        document.getElementById("currentfilename").innerHTML = currentFile;
+    }
+};
+httpc.open("GET", "load-file.php?filename=" + currentFile, true);
+httpc.send();
+```
+
+The above function calls yet another function, setmode(), which sets the code mode. This is awesome!! It has many language choices!! See below for a list of languages in the code:
+
+```
+function setmode(){
+    if(currentFile.substring(currentFile.length-3,currentFile.length) == ".py"){
+        editor.getSession().setMode("ace/mode/python");
+    }
+    if(currentFile.substring(currentFile.length-3,currentFile.length) == ".txt"){
+        editor.getSession().setMode("ace/mode/text");
+    }    
+    if(currentFile.substring(currentFile.length-3,currentFile.length) == ".md"){
+        editor.getSession().setMode("ace/mode/markdown");
+    }
+    if(currentFile.substring(currentFile.length-4,currentFile.length) == ".tex"){
+        editor.getSession().setMode("ace/mode/latex");
+    }
+    if(currentFile.substring(currentFile.length-3,currentFile.length) == ".js"){
+        editor.getSession().setMode("ace/mode/javascript");
+    }    
+    if(currentFile.substring(currentFile.length-4,currentFile.length) == ".ino"){
+        editor.getSession().setMode("ace/mode/java");
+    }   
+    if(currentFile.substring(currentFile.length-4,currentFile.length) == ".css"){
+        editor.getSession().setMode("ace/mode/css");
+    }       
+    if(currentFile.substring(currentFile.length-4,currentFile.length) == ".php"){
+        editor.getSession().setMode("ace/mode/php");
+    }       
+    if(currentFile.substring(currentFile.length-5,currentFile.length) == ".html"){
+        editor.getSession().setMode("ace/mode/html");
+    }   
+    if(currentFile.substring(currentFile.length-5,currentFile.length) == ".json"){
+        editor.getSession().setMode("ace/mode/json");
+    }       
+    
+}
+```
+
+That's a lot of languages!  It's everything we need to build up a whole information system.  
+
+Finally, to fully understand the editor code life cycle, we look at the function which saves the file as a user edits it in a browser:
+
+```
+document.getElementById("maineditor").onkeyup = function(){
+    data = encodeURIComponent(editor.getSession().getValue());
+    var httpc = new XMLHttpRequest();
+    var url = "save-file.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename="+currentFile);//send text to save-file.php
+}
+```
+
+And that's it!  Ace.js combined with the basic elements of Trash Magic to create a system of code files which can edit themselves and each other, all on the client side of a browser.  
+
+## Markdown: The Magic Book
+
+Now that we can edit all of the kinds of code, we will use yet another fantastic JavaScript library, [showdown.js](https://showdownjs.com/), to convert [markdown](https://en.wikipedia.org/wiki/Markdown) code into HTML which can be displayed well in a web browser. Markdown is a critical element of the system, since it is how this book is written and how all documentation on Github and similar free open source resources is written. It is also a standard part of modern scientific computing, forming an important part of the [jupyter notebook system](https://en.wikipedia.org/wiki/Project_Jupyter).   Showdown.js take text in a Markdown format and converts it to HTML. Plain JavaScript and Trash Magic can then be used to take markdown files and turn them into something displayed in the browser.  
+
+To invoke the showdown.js library, we include the following code in the head element of an html document:
+
+```
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+```
+
+Now, we create a showdown converter object:
+
+```
+var converter = new showdown.Converter();
+converter.setOption('literalMidWordUnderscores', 'true');
+converter.setOption('tables', 'true')
+```
+Then to actually load a markdown file, which we call a "scroll" in Trash Magic, we use the following code:
+
+```
+filename = "book.md";
+loadscroll("book.md");
+
+function loadscroll(scrollname){
+    filename = scrollname;
+    document.getElementById("scrollscroll").innerHTML = "";
+    document.getElementById("scrollscroll").style.display = "block";
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            scroll = this.responseText;
+            rawhtml = converter.makeHtml(scroll);
+            document.getElementById("scrollscroll").innerHTML = rawhtml;
+        }
+    };
+    httpc666.open("GET", "load-file.php?filename=" + scrollname, true);
+    httpc666.send();
+
+}
+
+```
+
+And that is how this book works! This book is a set of markdown files which are loaded by the load-file.php script, converted to html with showdown.js, and then displayed in a browser with css code to decide what it looks like. 
+
+One final point about the markdown conversion is that if we want to write scientific and technical documents which have equations embedded in them, we want to be able to use the same kind of mathematical type setting that both Github and Jupyter use: [LaTeX](https://en.wikipedia.org/wiki/LaTeX).  To do this we use the [Mathjax JavaScript library](https://www.mathjax.org/).  If we want to invoke this, we generally add some code to specify how it will work along with calling the remote library, by adding the following to the head element of an html document:
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        processClass: "mathjax",
+        ignoreClass: "no-mathjax"
+        }
+    });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
+</script>
+```
+
+Now the key thing is that any time a scroll is loaded we want to run the follwing code *after the code gets loaded*:
+
+```
+MathJax.Hub.Typeset();//tell Mathjax to update the math
+```
+
+So for example, we update the scroll load function as follows:
+
+```
+
+function loadscroll(scrollname){
+    filename = scrollname;
+    document.getElementById("editlink").href = "edit-markdown-file.php?filename=" + filename;
+    document.getElementById("scrollscroll").innerHTML = "";
+    document.getElementById("scrollscroll").style.display = "block";
+    var httpc666 = new XMLHttpRequest();
+    httpc666.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            scroll = this.responseText;
+            rawhtml = converter.makeHtml(scroll);
+            document.getElementById("scrollscroll").innerHTML = rawhtml;
+        	MathJax.Hub.Typeset();//tell Mathjax to update the math
+        }
+    };
+    httpc666.open("GET", "load-file.php?filename=" + scrollname, true);
+    httpc666.send();
+}
+
+```
+
