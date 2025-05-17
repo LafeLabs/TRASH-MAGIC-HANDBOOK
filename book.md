@@ -2,6 +2,7 @@
  - [readme.html](readme.html)
  - [edit-html.html](edit-html.html)
  - [edit-index.html](edit-index.html)
+ - [wall.html](wall.html)
 
 
 # THE TRASH MAGIC HANDBOOK!
