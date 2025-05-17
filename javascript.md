@@ -756,8 +756,9 @@ httpc.send();
     
 ```
  
-To do: add back a version of the player that uses webamp.js!
- 
+## [album-webamp.html](album-webamp.html) alternative app using [https://webamp.org/]
+
+
 
 ## P5.js and p5.sound.js
 
