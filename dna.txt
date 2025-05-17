@@ -59,6 +59,7 @@
         "trashmagic.js",
         "trashset.txt",
         "voice-of-the-soil.md",
+        "wall.html",
         "wall.txt",
         "web.html"
     ],

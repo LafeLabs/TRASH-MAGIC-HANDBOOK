@@ -8,6 +8,7 @@
 
  1. [What is Trash Magic?](read-markdown-file.php?filename=intro.md)
  4. [The Organic Web](read-markdown-file.php?filename=organic-web.md)
+ 5. [JAVASCRIPT!](read-markdown-file.php?filename=javascript.md)
  6. [Trash Magic Music Distro](read-markdown-file.php?filename=trash-magic-music-distro.md)
  5. [Private Server Build](read-markdown-file.php?filename=private-server.md)
  6. [Build Trash Magic Server](read-markdown-file.php?filename=trash-magic-server.md)
