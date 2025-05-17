@@ -207,6 +207,98 @@ Some readers may find this shocking. It is an extreme position to take as an inf
 
 Media death is an important part of organic media being a functioning media ecosystem.
 
+## File Uploads and the Freebox
+
+In addition to creating, editing, deleting and replicating files, we also want to be able to upload files from any given user device to any given server. Again, this is an anarchist mode of replication where we have no private user data and only share what we want to share with the whole community.  Any harmful material is immediately deleted. 
+
+In order to carry out this task of uploading, we use yet another Trash Magic PHP script, upload-image.php, as well as our old friend list-files.php to list the files and delete-file.php so that we can have a hair trigger on deleting any unwanted images quickly. 
+
+The main Trash Magic app for image sharing is [freebox.html](freebox.html).
+
+The way we create an uploader is with an [HTML form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form) which calls upload-image.php with an "action" as follows:
+
+
+```
+ <form id = "uploadform" action="upload-image.php" method="post" enctype="multipart/form-data">
+                <span id ="uploadspan">UPLOAD:</span>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit" id ="submitinput">
+    </form>   
+```
+
+That HTML snippet alone is enough to create an upload button!  But we want to also see all the images in a folder and be able to delete them, so we add a div to the body as follows:
+
+```
+<div id = "imagefeed"></div>
+```
+
+and then use JavaScript to create a list of images with DELETE buttons to delete all unwanted images:
+
+
+```
+deletemode = true;
+//deletemode = false;
+
+uploadImages = [];
+
+var httpcUpload = new XMLHttpRequest();
+httpcUpload.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        uploadImages = JSON.parse(this.responseText);
+        loadimagefeed();
+    }
+};
+httpcUpload.open("GET", "list-files.php", true);
+httpcUpload.send();
+
+function loadimagefeed(){
+
+    for(var index = 0;index < uploadImages.length;index++) {
+        if(uploadImages[index].includes(".png") || uploadImages[index].includes(".PNG") || uploadImages[index].includes(".jpg") || uploadImages[index].includes(".JPG") ||uploadImages[index].includes(".jpeg") || uploadImages[index].includes(".gif") ||uploadImages[index].includes(".GIF")){
+            
+            var newuploadbox = document.createElement("DIV");
+            newuploadbox.classList.add("imagebox");
+            var newimg = document.createElement("IMG");
+            newimg.src = uploadImages[index];
+            newimg.classList.add("uploadimage");
+            newuploadbox.appendChild(newimg);
+            document.getElementById("imagefeed").appendChild(newuploadbox);
+    
+            var newdiv = document.createElement("DIV");
+            newdiv.innerHTML = uploadImages[index];
+            newdiv.className = "filelabel";
+            newuploadbox.appendChild(newdiv);
+        
+            if(deletemode){
+                var newspan = document.createElement("SPAN");
+                newspan.innerHTML = "DELETE";
+                newuploadbox.appendChild(newspan);
+                newspan.classList.add("button");
+                newspan.classList.add("deletebutton");
+                newspan.onclick = function(){
+                    var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
+                    imagefilename = imageurl.split("/")[imageurl.split("/").length-1];
+                    console.log("imagefilename");
+                    var httpc = new XMLHttpRequest();
+                    var url = "delete-file.php";         
+                    httpc.open("POST", url, true);
+                    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                    httpc.send("filename=" + imagefilename);//send text to deletefile.php
+                    this.parentElement.parentElement.removeChild(this.parentElement);
+                }   
+            }   
+            
+            
+        }
+    }    
+}
+```
+
+And that's the FREEBOX!
+
+That alone is a very powerful social media tool. It's a great way to get user generated content quickly and easily in a private wireless network in a venue space.  Always have QR codes(see below) that direct users to a freebox if you want to make it easy to use one.
+ 
+
 ## Ace.js and Code Editors
 
 We now have a bare bones system for loading, saving, and deleting arbitrary files. But in order to build a fully organic information technology system, we also want to be able to edit code using software that knows something about whateve language we are editing the code of. To do this, we use the JavaScript library [Ace.js](https://ace.c9.io/), which has syntax highlighting for a wide range of commonly used languages, including all of the ones we use here.  Ace is a huge help in building Trash Magic! Without it, we would not be able to build such a light weight system for self-editing of code.  
@@ -406,4 +498,83 @@ function loadscroll(scrollname){
 }
 
 ```
+
+
+
+## Qrcode apps with qrcode.js
+
+Qr codes form an essential element of the Trash Magic system. They allow us to turn physical objects into hypertext in a powerful way.  In the early days of QR Codes they were not widely used, and one usually had to download a special app to read them. But no more!  Now, all the major smart phone manufacturers ship their products with built in QR code recognition in their camera software.  
+
+QR codes can point to any [url](https://en.wikipedia.org/wiki/URL)!  This is a vastly more powerful tool than people have fully realized yet!  They can point to both puplic web pages but also to private network resources on a local wifi network.  Public web pages can point to physical spaces using map pages which point back to physical spaces which have objects with QR codes which point back to web resources. Thus, QR Codes can create complext hypertext networks that blur the line between physical spaces and hypertext documents in HTML, and between local physical web servers and global cloud servers.
+
+To create QR code apps we use the [qrcode.js](https://davidshimjs.github.io/qrcodejs/) JavaScript library.
+
+To invoke the QR code library, we add the following code to the head element of a html file:
+
+```
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+```
+
+
+Then we will create a div element with the id "qrcode" by adding the following code to the body somewhere:
+
+```
+<div id = "qrcode"></div>
+```
+
+And then to create a QR code, we put the following code somewhere in a script element:
+
+```
+codesquaresize = 512;
+globalurl = window.location.href;
+qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: globalurl,
+	width: codesquaresize,
+	height: codesquaresize,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+
+```
+
+this will make a qr code that is 512 pixels squared, with the url in globalurl, with full conrast from black to white, specified in colorDark and colorLight.  This is all that is needed to make a qr code that points to whatever page it's on. The JavaScript code:
+
+```
+globalurl = window.location.href;
+```
+
+fetches the url of whatever page a users browser is pointed to.  This is how we make mobile web pages instantaneously self-relpicating. If someone loads a Trash Magic page on a mobile device, they can hold it up and anyone else around them can scan to instantly be on the same page. And the web developer never needs to go add some image of the QR code, they can just copy and paste the code here and every page will always have a QR cod pointing back to itself.  
+
+
+The main Trash Magic QR code apps are:
+
+ - [qrcode.html](qrcode.html)
+ - [qrcode-page.html](qrcode-page.html)
+ - [qrcode-list.html](qrcode-list.html)
+ - [edit-qrcode-list.html](edit-qrcode-list.html)
+
+
+The first of these, [qrcode.html](qrcode.html), simply creates one single big qr code of whatever url you put in the input.  As simple as this is, it is a very important and powerful element of the Trash Magic system. This allows any user on any page in any system to create a big qr code to any url to print and paste on something. This can be used to create a big cardboard sign which can be scanned from a road by passerby, a physical hyperlink made of trash.  Many people have access to free printer resources in various places at work or at home, and can contribute to the spread of trash magic by using this one simple app.
+
+The second one, [qrcode-page.html](qrcode-page.html), creates a whole page of identical QR codes, each with the same URL and whatever custom text you put in.   In order to get a whole bunch of QR codes to load, we engage in some shenanigans with passing of base 64 code between the object that has the qr code and various images that we add to an HTML document. 
+
+
+
+## music players with [track-list.js]
+
+
+
+## P5.js and p5sound.js
+
+P5JS is one of the most powerful technologies ever created. 
+
+## Math and physics in JavaScript
+
+JavaScript has no built in support for complex numbers. This can be a problem for various scientific applications.  To deal with any complex number math we may need, we can use [math.js](https://mathjs.org/).  
+
+
+## Embedded Systems in JavaScript
+
+[Microsoft MakeCode](https://www.microsoft.com/en-us/makecode) is a system for controlling a variety of physical hardware devices using a web-based graphical language.  However, under the hood of that graphical language is JavaScript!  So this is a way to make hardware control into JavaScript.  I konw very little about this other than that it works, and seems to be pretty easy to get started on. 
 
