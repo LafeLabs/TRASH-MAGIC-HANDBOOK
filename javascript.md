@@ -557,14 +557,162 @@ The main Trash Magic QR code apps are:
 
 The first of these, [qrcode.html](qrcode.html), simply creates one single big qr code of whatever url you put in the input.  As simple as this is, it is a very important and powerful element of the Trash Magic system. This allows any user on any page in any system to create a big qr code to any url to print and paste on something. This can be used to create a big cardboard sign which can be scanned from a road by passerby, a physical hyperlink made of trash.  Many people have access to free printer resources in various places at work or at home, and can contribute to the spread of trash magic by using this one simple app.
 
-The second one, [qrcode-page.html](qrcode-page.html), creates a whole page of identical QR codes, each with the same URL and whatever custom text you put in.   In order to get a whole bunch of QR codes to load, we engage in some shenanigans with passing of base 64 code between the object that has the qr code and various images that we add to an HTML document. 
+The second one, [qrcode-page.html](qrcode-page.html), creates a whole page of identical QR codes, each with the same URL and whatever custom text you put in. In order to get a whole bunch of QR codes to load, we engage in some shenanigans with passing of base 64 code between the object that has the qr code and various images that we add to an HTML document. 
 
 
+The main feature to note in how we create the array of QR codes in JavaScript in that app is the following function:
 
-## music players with [track-list.js]
+```
+function loadtable(){
+    globalurl = document.getElementById("urlinput").value;
+    urltext = document.getElementById("textinput").value;
+    qrcode.makeCode(globalurl);
+    pngcode = document.getElementById("qrcode").getElementsByTagName("IMG")[0].src;
+    document.getElementById("linklink").href = globalurl;
+    document.getElementById("linklink").innerHTML = globalurl;
+    table.innerHTML = "";
+    for(var row = 0;row < 8;row++){
+        var newtr = document.createElement("TR");
+        table.appendChild(newtr);
+        for(var col = 0;col < 8;col++){
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            var newimg = document.createElement("img");
+            newimg.style.width = "120px";
+            newimg.src = pngcode;
+            newtd.appendChild(newimg);
+        }
+        var newtr = document.createElement("TR");
+        table.appendChild(newtr);
+        for(var col = 0;col < 8;col++){
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            newtd.innerHTML = urltext;
+            newtd.className = "urltext";
+        }
+    }
+}
+
+```
+
+This code builds a table, creating rows, adding td elements, and then putting images in the td's and setting the src attriute of the images to be a copy of the image created by the qrcode.js library inside the qrcode div element called "qrcode".  
+
+The second two apps are to edit and print sets of different QR codes.  This creates a physical link tree, where a physical piece of trash with a single piece of paper wheate pasted to it can point to a whole set of different things represented by urls.  These can be ideas, web pages, apps, servers, people, places, machines, books, music, really anything you can possibly imagine and express with language.  
+
+Because it's short, we will include the entire source code for [qrcode-list.html](qrcode-list.html) here:
 
 
+```
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <!--
 
+TRASH MAGIC!
+
+PUBLIC DOMAIN NO COPYRIGHT!
+
+SELF-REPLICATING HTML!
+
+CAPS LOCK ALWAYS ON!
+
+   -->
+   <!--Stop Google:-->
+   <META NAME="robots" CONTENT="noindex,nofollow">
+<link href="data:image/x-icon;base6r4,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon">
+
+   <title>HYPERSPACE</title>    
+   <script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<style>
+body,input{
+    font-family:Comic Sans MS;
+}
+a{
+    font-family:Comic Sans MS;
+    COLOR:BLACK;
+}
+td{
+    padding:1em 1em 1em 1em;
+}
+</style>
+<body>    
+<table id = "maintable">
+</table>
+<script>
+
+
+codesquaresize = 170;
+numberofcolunms = 8;
+
+marginsize = 40;
+fontsize = 12;
+
+
+currentfile = "qrcode-list.txt";
+hyperspace = [];
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        hyperspace = JSON.parse(this.responseText);
+        loadtable();
+
+    }
+};
+httpc.open("GET", "load-file.php?filename=" + currentfile, true);
+httpc.send();
+
+
+function loadtable(){
+    document.getElementById("maintable").innerHTML = "";
+    var newtr = document.createElement("TR");
+        document.getElementById("maintable").appendChild(newtr);
+        for(var index = 0;index < hyperspace.length;index++){
+            if(index > 0 && index%numberofcolunms == 0){
+                var newtr = document.createElement("TR");
+                document.getElementById("maintable").appendChild(newtr);  
+            }
+            var newtd = document.createElement("TD");
+            newtr.appendChild(newtd);
+            var newspan = document.createElement("span");
+            var newa = document.createElement("A");
+            
+            
+            newa.innerHTML = hyperspace[index].text;
+            newa.href = hyperspace[index].url;
+            var newdiv = document.createElement("span");
+            qrcode = new QRCode(newdiv,{
+            	text: hyperspace[index].url,
+            	width: codesquaresize,
+            	height: codesquaresize,
+            	colorDark : "#000000",
+            	colorLight : "#FFFFFF",
+            	correctLevel : QRCode.CorrectLevel.H
+            });
+            newspan.appendChild(newdiv);
+            newspan.appendChild(newa);
+            newtd.appendChild(newspan);
+        }
+}
+
+
+</script>
+</body>
+</html>
+```
+
+This app creates a JSON object called "hyperspace" loaded from a file called "qrcode-list.txt", which is an array of JSON objects which each have the attributes "url" and "text", for the url to point the qr code to and the text to display, respectively.  The JavaScript goes through each element of the hyperspace array and bilds up a table with spans in the elements which it draws QR codes in as well as a "a" element hyperlink that has the text as a hyperlink to whatever the url is. So that when this file loads in a browser, a user can click to go to the link, but when it's printed a user can scan to go to the same link. This is media that crosses the boundaries between the physical and the virtual.
+
+The list of URLS and text elements stored in qrcode-list.txt is edited with the [edit-qrcode-list.html](edit-qrcode-list.html) app.  The details of this app are beyond the scope of this chapter, since it uses Geometron.
+
+## music players with [track-list.js](https://github.com/mirisuzanne/track-list)
+
+If we want to create music players, we can use a free open source JavaScript Library called [track-list.js](https://github.com/mirisuzanne/track-list) to play tracks in order and provide a user interface for play, rewind and so on.  Alternatively, we can use the [WebAmp](https://webamp.org/)
+ JavaScript library.  
+ 
+ 
+ 
 ## P5.js and p5sound.js
 
 P5JS is one of the most powerful technologies ever created. 
