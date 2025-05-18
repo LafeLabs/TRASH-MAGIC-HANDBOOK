@@ -5,11 +5,22 @@
  - [wall.html](wall.html)
 
 
-# THE TRASH MAGIC HANDBOOK!
+# THE TRASH MAGIC HANDBOOK
+
 
  1. [What is Trash Magic?](read-markdown-file.php?filename=intro.md)
  4. [The Organic Web](read-markdown-file.php?filename=organic-web.md)
- 5. [JAVASCRIPT!](read-markdown-file.php?filename=javascript.md)
+
+## The Trash Magic Software Stack
+
+ 15. [HTML](read-markdown-file.php?filename=html.md)
+ 15. [CSS](read-markdown-file.php?filename=css.md)
+ 5. [JavaScript](read-markdown-file.php?filename=javascript.md)
+ 15. [PHP](read-markdown-file.php?filename=php.md)
+ 15. [Markdown](read-markdown-file.php?filename=markdown.md)
+
+## Trash Magic Social Media
+
  6. [Trash Magic Music Distro](read-markdown-file.php?filename=trash-magic-music-distro.md)
  5. [Private Server Build](read-markdown-file.php?filename=private-server.md)
  6. [Build Trash Magic Server](read-markdown-file.php?filename=trash-magic-server.md)
@@ -21,7 +32,6 @@
  12. [The Voice of the Soil](read-markdown-file.php?filename=voice-of-the-soil.md)
  13. [The Path of the Trash Magician](read-markdown-file.php?filename=trash-magician.md)
  14. [The Global Trash Magic Revolution](read-markdown-file.php?filename=revolution.md)
- 15. [TRASH MAGIC CSS](read-markdown-file.php?filename=css.md)
  
 
 ## Trash Magic Action Links
