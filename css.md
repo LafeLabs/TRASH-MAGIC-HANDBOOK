@@ -79,6 +79,15 @@ input,textarea{
 <style>
 ```
 
+The next CSS style we wish to share here is for hot pink links, which look very cool.  The way to make links hot pink of the particular hue we prefer is as follows:
+
+
+```
+a{
+    color:#ff2cb4;
+}
+```
+
 
 
 

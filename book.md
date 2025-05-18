@@ -52,20 +52,32 @@
 4. ebook distro
 5. podcast distro
 
+## Trash Magic Venues
 
-6. book shop distro
-7. libraries
+6. book shops
+7. public libraries
 8. coffee shops
 9. art galleries
 10. bus stops and train stations
+11. little free libraries
+12. community houses
+13. hacker/maker spaces
+14. restaurants
+15. parks
+16. the side of the highway
+17. mobile venues on bike or ebike
+18. mobile venues on camper/van
+19. The MAGIC SCHOOL BUS
+20. strip malls
+21. offices
 
-## Physical Trash Magic 
+## Physical Trash Magic Products
 
 *EVERYTHING FREE FOR EVERYONE EVERYWHERE RIGHT NOW*
 
 1. cardboard signs
 2. geometron hypercube and cards
-2. textile hypertext
+2. textile hypertext: FREE PANTS AND THE BLACK FLAG
 3. trash magic web servers
 4. trash magic carts
 5. trash magic replicator flash drives
