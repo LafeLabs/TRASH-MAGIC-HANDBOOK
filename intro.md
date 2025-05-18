@@ -20,7 +20,7 @@ Trash Magic is a philosophy which states that we as a civilization should build 
 
 ### [trashmagic.js](trashmagic.js)
 
-The rainbow text in this document is created with the Trash Magic JavasScript library, which also has a function for generating arbitrary rainbow elements of any kind in a web browser and also injecting sets of randomly distrubted googley eyes in a web browser.
+The rainbow text in this document is created with the Trash Magic JavaScript library, which also has a function for generating arbitrary rainbow elements of any kind in a web browser and also injecting sets of randomly distrubted googley eyes in a web browser.
 
 
 ## Trash Magic is a Way of Life

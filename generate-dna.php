@@ -48,29 +48,3 @@ this program generates the file dna.txt which lists the files to replicate
 
 ?>
 </pre>
-<br>
-<pre>
-<?php
-
-$files = scandir(getcwd());
-$phpfiles = scandir(getcwd()."/php");
-echo "\n## HTML AND TEXT FILES:\n\n";
-
-foreach($files as $value){
-    if(substr($value,-4) == ".txt" || substr($value,-4) == ".css" || substr($value,-5) == ".html" || substr($value,-3) == ".md" || substr($value,-3) == ".py" || substr($value,-3) == ".sh" || substr($value,-3) == ".js"){
-        echo "  - [".$value."](".$value.")\n";
-    }
-}
-
-
-echo "\n## PHP CODE AS RAW TEXT:\n\n";
-foreach($phpfiles as $value){
-    if($value[0] != "."){
-        echo "  - [php/".$value."](php/".$value.")\n";
-    }
-}
-
-
-?>
-    
-</pre>

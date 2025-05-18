@@ -44,6 +44,20 @@
 15. [album-webamp.html](album-webamp.html)
 16. [pdf-library.html](pdf-library.html)
 
+## Trash Magic System Apps
+
+ 1. [edit-index.html](edit-index.html)
+ 2. [edit-html.html](edit-html.html)
+ 3. [edit-php.php](edit-php.php)
+ 4. [delete-php.php](delete-php.php)
+ 4. [delete-html.html](delete-html.html)
+ 5. [readme.html](readme.html)
+ 6. [branch.html](branch.html)
+ 7. [qrcode.html](qrcode.html)
+ 8. [edit-book.html](edit-book.html)
+ 9. [generate-dna.php](generate-dna.php)
+ 10. [php/replicator.txt](php/replicator.txt)
+
 ## Trash Magic Media Distro
 
 1. album distro

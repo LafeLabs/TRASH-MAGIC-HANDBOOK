@@ -230,11 +230,101 @@ This replicator replicates this book!  It replicates all of the elements!  Every
 
 The code has in it lines which identify the URL of the dna to copy from and the replicator to copy from. The program assumes that the dna and php live on the same server, and finds the "base url" which is where all files are stored, and then fetches every single of of those files one by one using the insanely powerful php "[copy](https://www.php.net/manual/en/function.copy.php)" command.  Every file is copied!  But note that we copy both the PHP files as PHP files and also make copies of them in the php directory as .txt files. This allows us to edit PHP files as described below.  Note that any random files you want to copy from any random servers on any random network can also be manually added by adding more copy lines.  Also note that copying huge files sometimes fails.  This is never a problem for files of under a megabyte though, which all our files always are.  Even the full geometron.js library is under 100k!  
 
-
+There is a final detail about replication which we must discuss. That of the local replicator.  When we are branching in the Trash Magic Tree, the replicator used is not the global replicator, but a local replicator which copies the set from any given directory into the branched sub-directory directly, rather than from some remote resource.  This will be discussed elsewhere in this manuscript, in the section on branching of the Trash Magic Tree.
 
 
 ## How Trash Magic PHP self-edits
 
+### [edit-php.html](edit-php.html)
+
+We use PHP scripts to edit all the files in Trash Magic, but how do we edit the PHP files themselves?  What happens when an individual script edits itself? Can a program delete itself? It is indeed possible to make unstable systems where a PHP script edits itself out of functionality, breaks, and leaves a broken carcas of half edited files scattered on a non-functioning system!
+
+The way we get out of this mess in Trash Magic is to edit a set of .txt files in a sub-directory of the current working directory called "php/" which are exact mirrors of all the .php scripts.  Then we have a PHP script called compile-php.php which finds every file in the php directory and copies it over to a .php in the working directory.  This way, we can edit the text file live in a web based editor and not create unstable code that breaks as you are typing. 
+
+
+The full code in the php complier is as follows:
+
+
+```
+<?php
+
+$files1 = scandir("php/");
+
+foreach ($files1 as $value) {
+    if($value != "." &&$value != ".."){
+        $filebase = explode(".",$value)[0].".php";
+        $code = file_get_contents("php/".$value);
+        $file = fopen($filebase,"w");// create new file with this name
+        fwrite($file,$code); //write data to file
+        fclose($file);  //close file      
+    }
+}
+
+?><a style = "font-size:10em;font-family:Comic Sans MS" href = "edit-php.html">edit-php.html</a>
+```
+
+The editor which we use to edit all the .txt files in the php directory is [edit-php.html](edit-php.html), which uses the [Ace.js](https://ace.c9.io/) JavaScript library to do PHP syntax highlighting.  The editor is only a minor modification of other editors used to edit index.html, all the other html files, and the markdown files which make up this book.  The PHP editor has a link in it to the PHP compiler, which in turn links back to the editor.
+
+The editor also makes use of another useful Trash Magic PHP script, list-files.php.  This is a script which returns an array with a list of files in a directory of specified name.  The following abbreviation of the code in the editor demonstrates how the list-files.php script works:
+
+```
+scrolls = [];
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        scrolls = JSON.parse(this.responseText);
+
+    }
+};
+
+httpc.open("GET", "list-files.php?directoryname=php", true);
+httpc.send();
+
+```
+
+
+## Branching with PHP
+
+Another important PHP function in Trash Magic is branching. This is where we create a sub-directory to whatever directory we are in which is a copy of the directory we are in.  It is how we create large fractal structures in Trash Magic web resources. The full dynamics of Branching in Trash Magic will be discussed in detail in its own section. 
+
+The branching process triggers the Trash Magic PHP script branch.php. The full code for this is shown below:
+
+```
+<?php
+//branch.php?branchname=[branchname]
+$branchname = $_GET["branchname"];//get branch name
+mkdir($branchname);//create directory with branch name
+
+if(isset($_GET["replicator"])){
+    $replicatorurl = $_GET["replicator"];
+    copy($replicatorurl,$branchname."/replicator.php");
+}
+else{
+    copy("php/local-replicator.txt",$branchname."/replicator.php");    
+}
+
+echo "<a href = \"".$branchname."/replicator.php\">CLICK ME(2/3)</a>";
+
+?>
+<style>
+body{
+    background-color:BLACK;
+    font-family:Comic Sans MS;
+    font-size:3em;
+}
+    a{
+        font-size:3em;
+        color:#ff2cb4;
+;
+    }
+</style>
+```
+
+Since we will delve into this more elsewhere, we will only point out the one command here: [mkdir](https://www.php.net/manual/en/function.mkdir.php). mkdir is a very useful command which lets us create directories, which is a fundamental power that we use in Trash Magic to create fractal trees of web content.
+
+The full list of PHP code is linked below, and we recommend that you go learn the basics of PHP on the [w3schools PHP tuturial](https://www.w3schools.com/php/) and then come back here and read the code to try to see what is going on.  Once you get the hang of just a dozen or so basic PHP commands you can really do some extremely powerful things! You have total power over the very fabric of reality on the World Wide Web! 
+
+*PHP IS ULTIMATE POWER!!!*
 
 
 ## PHP CODE AS RAW TEXT(alphabetical):
