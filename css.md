@@ -59,8 +59,8 @@ body{
 
 Here is what that looks like in cardboard and HTML, pointing out the duality of cardboard that looks like html and html that looks like cardboard:
 
-![cardboard sign with CSS code](images/CARDBOARD-CSS-CARDBOARD.PNG)
-![HTML representation of same](images/CARDBOARD-CSS-HTML.PNG)
+![cardboard sign with CSS code](https://raw.githubusercontent.com/LafeLabs/TRASH-MAGIC-HANDBOOK/refs/heads/main/images/CARDBOARD-CSS-CARDBOARD.PNG)
+![HTML representation of same](https://raw.githubusercontent.com/LafeLabs/TRASH-MAGIC-HANDBOOK/refs/heads/main/images/CARDBOARD-CSS-HTML.PNG)
 
 What are some other Trash Magic styles?
 
