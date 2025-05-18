@@ -5,7 +5,7 @@
 
 # PHP and Trash Magic
 
-[PHP](https://en.wikipedia.org/wiki/PHP) is one of the the core languages of the World Wide Web, along with HTML, JavaScript, and CSS.  It has its roots in the very beginnings of the Web, around the middle of the 1990s. PHP originally stood for "Personal Home Page", and was intended as an alternative to HTML which people can write web documents in.  Web browsers will look for an index.html file on servers when you point your browser to the server, and if they don't find that and there is an index.php file, that will load instead. A file that ends in .php but has regular HTML in it will load as normal. The letters PHP have been changed to stand for "PHP: Hypertext Preprocessor".
+[PHP](https://en.wikipedia.org/wiki/PHP) is one of the the core languages of the World Wide Web, along with HTML, JavaScript, and CSS.  It has its roots in the very beginnings of the Web, around the middle of the 1990s. PHP originally stood for "Personal Home Page", and was intended as an alternative to HTML which people can write web documents in.  Web browsers will look for an index.html file on servers when you point your browser to the server, and if they don't find that and there is an index.php file, that will load instead. A file that ends in .php but has regular HTML in it will load as normal. The letters PHP have been changed to stand for "PHP: Hypertext Preprocessor".  
 
 But inside that HTML-like file, a PHP file can have code that does things on the server which are impossible without a server side language! PHP bridges the gap from front end to back end. PHP is how we build fully anarchist information architecture, where the client side of the browser can carry out arbitrary tasks on the server side.
 
@@ -124,12 +124,120 @@ And then when we click back to index.html and reload the browser the new page sh
 ```
 https://www.us-highway-36.net/ffbus/copy.php?from=trashmagic.html&to=index.html
 ```
+## System Replication 
+
+One of the most fundamental characteristics which distinguishes trash magic from other information systems is how it replicates.  Any Trash Magic system is generally a set of files which are all replicated together as a set.  The list of files is in a JSON object stored in a text file called dna.txt.  This file is created by use of another Trash Magic PHP script called generate-dna.php, which does exactly what it says, simply lists the files on the system and puts them in a JSON object which separates out the PHP files specifically(more on this later).  The PHP script which generates the dna is listed in full here:
+
+```
+<a style ="font-family:Comic Sans MS;color:blue;font-size:1.5em;" href = "index.html">index.html</a>
+<pre>
+<?php
+    $files = scandir(getcwd());
+    $phpfiles = scandir(getcwd()."/php");
+    $htmlfiles = [];
+    foreach($files as $value){
+        if(substr($value,-4) == ".txt" || substr($value,-4) == ".css" || substr($value,-5) == ".html" || substr($value,-3) == ".md" || substr($value,-3) == ".py" || substr($value,-3) == ".sh" || substr($value,-3) == ".js"){
+            array_push($htmlfiles,$value);
+        }
+    }
+
+    $dna = json_decode("{}");
+    $dna->html = $htmlfiles;
+
+    $dna->php = [];
+    foreach($phpfiles as $value){
+        if($value[0] != "."){
+            array_push($dna->php,$value);
+        }
+    }
+    echo json_encode($dna,JSON_PRETTY_PRINT);
+    $file = fopen("dna.txt","w");// create new file with this name
+    fwrite($file,json_encode($dna,JSON_PRETTY_PRINT)); //write data to file
+    fclose($file);  //close file
+
+?>
+</pre>
+
+```
+
+This shows some very important features of PHP that we make use of in Trash Magic. The first of these is how [JSON](https://en.wikipedia.org/wiki/JSON) is handled by PHP. We first create the PHP variable $dna, an empty JSON object with the following code:
+
+```
+$dna = json_decode("{}");
+```
+
+Unlike in JavaScript, which uses a "dot" notation for objects, PHP uses a text arrow formed from a hyphen and a greater than sign.  The object has two arrays of strings, one called "html" which lists all non-PHP flies in the main directory of the set and one called "php" which lists only the PHP files.  The for loops clean out any files that are not of some type that we want replicated. Then a very important point in all this is that the code needs to be in a "pre" html element in order to actually display well, and then the syntax 
+
+```
+json_encode($dna,JSON_PRETTY_PRINT)
+```
+inside a pre will have the newlines that it needs to have to be readable. If it is not in a pre element, it will ignore newlines and all the data will be in a hard to read jumble. Also we use PHP's same file handling commands as we used in save-file.php and load-file.php to save the finished JSON file in dna.txt.  This list is now ready to pass along to the replicator!
+
+The core replication code that copies a trash magic set to any given server is replicator.php. This is very fundamental to the structure of Trash Magic. It is the only thing a Trash Magician requires to replicate the whole system. One replicator.php script uploaded to any given server can clone whole universes of sets from any other server on any given network.  
+
+The full code for replicator.php is as follows:
+
+
+```
+<?php
+$dnaurl = "https://raw.githubusercontent.com/LafeLabs/TRASH-MAGIC-HANDBOOK/refs/heads/main/dna.txt";
+
+if(isset($_GET["dna"])){
+    $dnaurl = $_GET["dna"];
+}
+
+$baseurl = explode("dna.txt",$dnaurl)[0];
+$dnaraw = file_get_contents($dnaurl);
+$dna = json_decode($dnaraw);
+
+mkdir("php");
+
+copy("https://raw.githubusercontent.com/LafeLabs/TRASH-MAGIC-HANDBOOK/refs/heads/main/php/replicator.txt","replicator.php");
+
+
+foreach($dna->html as $value){
+    
+    copy($baseurl.$value,$value);
+
+}
+
+
+foreach($dna->php as $value){
+ 
+    copy($baseurl."php/".$value,"php/".$value);
+    copy($baseurl."php/".$value,explode(".",$value)[0].".php");
+
+}
+
+?>
+<a href = "index.html">CLICK ME(3/3)</a>
+<style>
+body{
+    background-color:BLACK;
+    font-family:Comic Sans MS;
+    font-size:3em;
+}
+a{
+        font-size:3em;
+        color:#ff2cb4;
+
+}
+</style>
+
+```
+
+This replicator replicates this book!  It replicates all of the elements!  Every chapter, every app, every page, every helper file, and every php script, it's all copied by this. This is a self-replicating ebook! This very book right here!
+
+The code has in it lines which identify the URL of the dna to copy from and the replicator to copy from. The program assumes that the dna and php live on the same server, and finds the "base url" which is where all files are stored, and then fetches every single of of those files one by one using the insanely powerful php "[copy](https://www.php.net/manual/en/function.copy.php)" command.  Every file is copied!  But note that we copy both the PHP files as PHP files and also make copies of them in the php directory as .txt files. This allows us to edit PHP files as described below.  Note that any random files you want to copy from any random servers on any random network can also be manually added by adding more copy lines.  Also note that copying huge files sometimes fails.  This is never a problem for files of under a megabyte though, which all our files always are.  Even the full geometron.js library is under 100k!  
 
 
 
 
+## How Trash Magic PHP self-edits
 
-## PHP CODE AS RAW TEXT:
+
+
+## PHP CODE AS RAW TEXT(alphabetical):
 
   - [php/branch.txt](php/branch.txt)
   - [php/compile-php.txt](php/compile-php.txt)
