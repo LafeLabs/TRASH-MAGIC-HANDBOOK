@@ -34,12 +34,13 @@
 5. [set.html](set.html)
 6. [qrcode.html](qrcode.html)
 7. [qrcode-page.html](qrcode-page.html)
-8. [qrcode-set.html](qrcode-set.html)
+8. [qrcode-list.html](qrcode-list.html)
+8. [edit-qrcode-list.html](edit-qrcode-list.html)
 9. [readme.html](readme.html)
 10. [tarot.html](tarot.html)
-11. [cyber-tarot.html]
-12. [oscilloscope-squares.html]
-13. [gaussian-squares.html]
+11. [cyber-tarot.html](cyber-tarot.html)
+12. [oscilloscope-squares.html](oscilloscope-squares.html)
+13. [gaussian-squares.html](gaussian-squares.html)
 14. [album.html](album.html)
 15. [album-webamp.html](album-webamp.html)
 16. [pdf-library.html](pdf-library.html)
@@ -48,8 +49,8 @@
 
  1. [edit-index.html](edit-index.html)
  2. [edit-html.html](edit-html.html)
- 3. [edit-php.php](edit-php.php)
- 4. [delete-php.php](delete-php.php)
+ 3. [edit-php.html](edit-php.html)
+ 4. [delete-php.html](delete-php.html)
  4. [delete-html.html](delete-html.html)
  5. [readme.html](readme.html)
  6. [branch.html](branch.html)
