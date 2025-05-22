@@ -95,6 +95,7 @@
 2. textile hypertext: FREE PANTS AND THE BLACK FLAG
 3. trash magic web servers
 4. trash magic carts
+5. skeletron
 5. trash magic replicator flash drives
 6. the physical trash magic handbook published from lulu press
 7. the physical trash magic book printed with the people's printer

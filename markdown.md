@@ -15,6 +15,33 @@ In Trash Magic, we display all documents in a web browser in HTML but write in M
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
 ```
 
+ To load a Markdown file we begin by loading it like any other file in the Trash Magic system, by using load-file.php, which doesn't care what kind of file we are loading, as long as it's some kind of text. Once the file is loaded, if we want to display it as HTML we will create a "converter object" in Showdown and then choose a couple options as follows:
+ 
+ ```
+ var converter = new showdown.Converter();
+// for more on options see here:
+// https://github.com/showdownjs/showdown/wiki/Showdown-Options
+converter.setOption('literalMidWordUnderscores', 'true');
+converter.setOption('tables', 'true')
+ ```
+ 
+To convert a string variable called "scroll" which contains the contents of a Markdown file into HTML we use the following code:
+
+```
+rawhtml = converter.makeHtml(scroll);
+```
+ 
+And then put that HTML code into some HTML element in your document with code like this:
+
+```
+document.getElementById("scrollscroll").innerHTML = rawhtml;
+```
+
+This can be either put into a big scroll that covers the whole screen or some more specific space on the screen of the device pointed at the web page. 
+
+Like HTML, there are really two very different things we want to do with Markdown code: display it and edit it.  The above code demonstrates using the [showdown.js](https://showdownjs.com/) library to display it, but for editing we also want to use  yet another free JavaScript library, [Ace.js](https://ace.c9.io/). This library has syntax highlighting for a large range of popular computer languages including Markdown. 
+
+For the most part, we either edit *or* render into HTML, not both at the same time. The exception is the very useful Trash Magic app [readme.html](readme.html), which both displays and edits the README.md Markdown file that is present in all Trash Magic code sets, as well as most online open source code repositories.
 
 
  - readme
