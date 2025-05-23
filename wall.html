@@ -8,6 +8,7 @@
     </head>
 <body>
     <a id ="homelink" href = "index.html">HOME</a>
+    <a id = "branchlink" href = "branch.html">BRANCH</a>
     <h1 id = "title">WALL</h1>
 <textarea id = "wall"></textarea>
 <script>
@@ -51,8 +52,6 @@ body{
     font-family:Comic Sans MS;
     
 }
-a{
-}
 #wall{
     position:absolute;
     left:10%;
@@ -69,15 +68,21 @@ a{
     border:solid;
     border-width:10px;
 }
-#homelink{
+a{
     position:absolute;
-    left:0px;
-    top:0px;
     font-size:2em;
     font-family:Comic Sans MS;
     font-size:4em;
     color:blue;
-    
+    z-index:1;
+}
+#homelink{
+    left:0px;
+    top:0px;
+}
+#branchlink{
+    right:0px;
+    top:0px;
 }
 
         </style>

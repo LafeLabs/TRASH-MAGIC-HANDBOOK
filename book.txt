@@ -22,5 +22,6 @@
     "trash-magic-server.md",
     "trash-magic-social-media.md",
     "trash-magician.md",
+    "tree.md",
     "voice-of-the-soil.md"
 ]
