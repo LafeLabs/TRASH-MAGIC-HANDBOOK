@@ -3,6 +3,7 @@
     "album.md",
     "book.md",
     "css.md",
+    "geometron.md",
     "html.md",
     "intro.md",
     "javascript.md",

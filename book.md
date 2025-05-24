@@ -1,4 +1,5 @@
  - [edit-book.html](edit-book.html)
+ - [read-book.html](read-book.html)
  - [readme.html](readme.html)
  - [edit-html.html](edit-html.html)
  - [edit-index.html](edit-index.html)
@@ -19,11 +20,7 @@
  4. [PHP](read-markdown-file.php?filename=php.md)
  5. [Markdown: The Magic Book](read-markdown-file.php?filename=markdown.md)
  6. [Branches in the Trash Magic Tree](read-markdown-file.php?filename=tree.md)
- 7. [Geometron: Geometric programming]
- 8. [guerilla servers with XAMPP]
- 9. [Building servers with The LARP(Linux Apache tRashmagic PHP) Stack]
- 10. Mobile servers on Android with KSWEB
- 11. The Raspberry Pi Trash Magic Server(Cyberdeck)
+ 7. [Geometron: Geometric programming](read-markdown-file.php?filename=geometron.md)
 
 ## Trash Magic Social Media Apps
 
@@ -45,6 +42,7 @@
 14. [album.html](album.html)
 15. [album-webamp.html](album-webamp.html)
 16. [pdf-library.html](pdf-library.html)
+17. [trash-magic-apps.html](trash-magic-apps.html)
 
 ## Trash Magic System Apps
 

@@ -43,20 +43,26 @@ Like HTML, there are really two very different things we want to do with Markdow
 
 For the most part, we either edit *or* render into HTML, not both at the same time. The exception is the very useful Trash Magic app [readme.html](readme.html), which both displays and edits the README.md Markdown file that is present in all Trash Magic code sets, as well as most online open source code repositories.
 
+This book was written with a combination of two Trash Magic markdown apps, which are [edit-book.html](edit-book.html) and [edit-markdown-file.php](edit-markdown-file.php). The first of these edits any and all markdown files in any given directory with a Trash Magic system in it.  Thus, any Trash Magic directory can become a whole book any time.  New markdown files are created in the [edit-book.html](edit-book.html) by putting the name of the new markdown file into the input at the top left of the screen, where it says "New File Name(end with .md)".  Be sure to end each new Markdown file with the appropriate .md suffix, or the editor won't know it's a markdown file.  
 
- - readme
- - this book
- - jupyter
- - markdown and latex
- - from markdown to latex to pdf by way of pandoc
- - basics of markdown syntax
- - showdown.js
- - ace.js markdown mode
- - trash magic markdown apps
- - how to edit a markdown scroll
- - how to read a markdown scroll
- - markdown scroll set replication
- 
+The sibling app to edit-book.html is [read-book.html](read-book.html), which also lists all the .md files in any given Trash Magic directory, but rather than edit them, it renders them all into HTML and displays the formatted document.  Read-book.html can be edited using [edit-html.html](edit-html.html) to change what the book looks like. Change the CSS code in the style tag in read-book.html in order to change what it looks like.  
+
+To read a specific markdown file, we use the Trash Magic app read-markdown-file.php and pass it a filename to read.  We do this with the question mark and equals sign in a url in a browser. So for example to read book.md, we can use the following link:
+
+### [read-markdown-file.php?filename=book.md](read-markdown-file.php?filename=book.md)
+
+Note that the file does not have to be on the local server, it can be any Markdown file anywhere on the Internet, including a pastebin file or README file on some random Github Repository!
+
+Markdown files are listed by [generate-dna.php](generate-dna.php) and copied by replicator.php. This makes them a part of the overall self-replicating set of files which make up Trash Magic.
+
+Markdown is a critical componenent of how we create a fully self-replicating sets of files, because it is how humans tell other humans how to copy all the rest of it.  This book is intended to be a spore of a whole network of self-replicating books which include Markdown files together with the rest of the system.
+
+Also, TRASHBOOK is an earlier version of the system, which we have used both to write other books by TRASH ROBOT which document TRASH MAGIC and GEOMETRON, but we've also used it to create self-replicating e books that are in the Public Domain on [Project Gutenberg](https://www.gutenberg.org/).  These books can be replicated from server to server with a click using client side JavaScript.
+
+One other part of Markdown on the web is how we typeset mathematics. Whenever we wish to display mathematical equations in Trash Magic, we do so using the JavaScript library [mathjax.js](https://www.mathjax.org/).  This library is based on the math type setting system known as "LaTeX", prounced like "latex" but the "X" is pronounced like a "k", because it's really the Greek letter Chi.  This system is widely used in academic and scientific circles, and is the basis for how math is typeset in Jupyter notebooks, and in many popular science publications. 
+
+Latex is also used to write books in Trash Magic, including very likely this one at some point. But we'll see.
+
 Trash Magic Markdown apps
  
  - [edit-markdown-file.php](edit-markdown-file.php)
