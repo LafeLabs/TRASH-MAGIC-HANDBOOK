@@ -61,6 +61,7 @@ Trash Magic Markdown apps
  
  - [edit-markdown-file.php](edit-markdown-file.php)
  - [edit-book.html](edit-book.html)
+ - [read-book.html](read-book.html)
  - [readme.html](readme.html)
  - [README.md](README.md)
  - [read-markdown-file.php](read-markdown-file.php)
