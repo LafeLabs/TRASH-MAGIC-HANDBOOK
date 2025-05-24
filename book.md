@@ -5,6 +5,7 @@
  - [edit-index.html](edit-index.html)
  - [edit-php.html](edit-php.html)
  - [wall.html](wall.html)
+ - [trash-magic.html](trash-magic.html)
 
 
 # THE TRASH MAGIC HANDBOOK
@@ -19,7 +20,8 @@
  3. [JavaScript](read-markdown-file.php?filename=javascript.md)
  4. [PHP](read-markdown-file.php?filename=php.md)
  5. [Markdown: The Magic Book](read-markdown-file.php?filename=markdown.md)
- 6. [Branches in the Trash Magic Tree](read-markdown-file.php?filename=tree.md)
+ 6. [JSON](read-markdown-file.php?filename=json.md)
+ 6. [Growing the Trash Magic Tree](read-markdown-file.php?filename=tree.md)
  7. [Geometron: Geometric programming](read-markdown-file.php?filename=geometron.md)
 
 ## Trash Magic Social Media Apps

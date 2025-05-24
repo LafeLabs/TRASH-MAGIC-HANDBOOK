@@ -27,6 +27,7 @@
         "index.html",
         "intro.md",
         "javascript.md",
+        "json.md",
         "markdown.md",
         "math.html",
         "noise-band.html",

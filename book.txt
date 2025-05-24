@@ -7,6 +7,7 @@
     "html.md",
     "intro.md",
     "javascript.md",
+    "json.md",
     "markdown.md",
     "organic-web.md",
     "php.md",
