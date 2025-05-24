@@ -4,11 +4,10 @@
  - [edit-html.html](edit-html.html)
  - [edit-index.html](edit-index.html)
  - [edit-php.html](edit-php.html)
- - [wall.html](wall.html)
  - [trash-magic.html](trash-magic.html)
 
 
-# THE TRASH MAGIC HANDBOOK
+## [THE TRASH MAGIC HANDBOOK](https://github.com/LafeLabs/TRASH-MAGIC-HANDBOOK)
 
 
  1. [Introduction: What is Trash Magic?](read-markdown-file.php?filename=intro.md)
@@ -23,6 +22,8 @@
  6. [JSON](read-markdown-file.php?filename=json.md)
  6. [Growing the Trash Magic Tree](read-markdown-file.php?filename=tree.md)
  7. [Geometron: Geometric programming](read-markdown-file.php?filename=geometron.md)
+ 8. [TRASH MAGIC SOCIAL MEDIA APPS](read-markdown-file.php?filename=social-media-apps.md)
+ 9. [TRASH MAGIC SYSTEM APPS](read-markdown-file.php?filename=system-apps.md)
 
 ## Trash Magic Social Media Apps
 
@@ -60,63 +61,22 @@
  9. [generate-dna.php](generate-dna.php)
  10. [php/replicator.txt](php/replicator.txt)
 
-## Trash Magic Media Distro
+## Trash Magic Media Network
 
-1. album distro
-2. zine distro
-3. physical book distro
-4. ebook distro
-5. podcast distro
-
-## Trash Magic Venues
-
-6. book shops
-7. public libraries
-8. coffee shops
-9. art galleries
-10. bus stops and train stations
-11. little free libraries
-12. community houses
-13. hacker/maker spaces
-14. restaurants
-15. parks
-16. the side of the highway
-17. mobile venues on bike or ebike
-18. mobile venues on camper/van
-19. The MAGIC SCHOOL BUS
-20. strip malls
-21. offices
+1. Trash Magic Content Creators
+2. Trash Magic Venues
+4. Trash Magic install parties
+5. Trash Magic Feeds
 
 ## Physical Trash Magic Products
 
-*EVERYTHING FREE FOR EVERYONE EVERYWHERE RIGHT NOW*
-
-1. cardboard signs
-2. geometron hypercube and cards
-2. textile hypertext: FREE PANTS AND THE BLACK FLAG
-3. trash magic web servers
-4. trash magic carts
-5. skeletron
-5. trash magic replicator flash drives
-6. the physical trash magic handbook published from lulu press
-7. the physical trash magic book printed with the people's printer
-6. mesh networks
-7. solar power
-8. bike power
-9. wind power
-10. water power
-11. the street network
-12. the watershed network
-13. the voice of the living soil
-14. Robots made of trash
-15. Synthesizers made of trash
+1. [CARDBOARD HYPERTEXT](read-markdown-file.php?filename=textile.md)
+3. [TRASH MAGIC WEB SERVERS](readme.html)
+4. [FREE PANTS AND THE BLACK FLAG](read-markdown-file.php?filename=textile.md)
 
 
-## Trash Magic Action Links
+## MUTATORS
 
- - [edit-html.html](edit-html.html)
- - [edit-php.html](edit-php.html)
- - [index.html](index.html)
- - [qrcode.html](qrcode.html)
- - [branch.html](branch.html)
- 
+
+
+

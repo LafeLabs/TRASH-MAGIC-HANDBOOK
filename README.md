@@ -1,16 +1,9 @@
+# [THE TRASH MAGIC HANDBOOK](https://github.com/lafelabs/TRASH-MAGIC-HANDBOOK)
+
 ![](qrcode.png)
 ![](qrcode-page.png)
 
- - [index.html](index.html)
- - [edit-html.html](edit-html.html)
- - [edit-php.html](edit-php.html)
- - [branch.html](branch.html)
- - [read-book.html](read-book.html)
- - [copy.php?from=album.html&to=index.html](copy.php?from=album.html&to=index.html)
-
-### [read-markdown-file.php?filename=book.md](read-markdown-file.php?filename=book.md)
-
-## [THE TRASH MAGIC HANDBOOK](https://github.com/lafelabs/TRASH-MAGIC-HANDBOOK)
+# [THE TRASH MAGIC HANDBOOK](https://github.com/lafelabs/TRASH-MAGIC-HANDBOOK)
 
 ## [LOCALHOST/TRASH-MAGIC-HANDBOOK](http://localhost/TRASH-MAGIC-HANDBOOK/)
 
