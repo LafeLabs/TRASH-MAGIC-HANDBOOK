@@ -1,10 +1,12 @@
  - [edit-book.html](edit-book.html)
  - [read-book.html](read-book.html)
  - [readme.html](readme.html)
+ - [freebox.html](freebox.html)
  - [edit-html.html](edit-html.html)
  - [edit-index.html](edit-index.html)
  - [edit-php.html](edit-php.html)
  - [trash-magic.html](trash-magic.html)
+ - [branch.html](branch.html)
 
 
 ## [THE TRASH MAGIC HANDBOOK](https://github.com/LafeLabs/TRASH-MAGIC-HANDBOOK)
@@ -77,6 +79,5 @@
 
 ## MUTATORS
 
-
-
+## [BECOME TRASH MAGIC](copy.php?from=trash-magic.html&to=index.html)
 

@@ -89,6 +89,13 @@ var httpc2 = new XMLHttpRequest();
     httpc2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         directories = JSON.parse(this.responseText);
+        var newa = document.createElement("A");
+        newa.innerHTML = "../";
+        newa.href = "../";
+        var newli = document.createElement("LI");
+        newli.appendChild(newa);
+        document.getElementById("mainlist").appendChild(newli);
+
         for(var index = 0;index < directories.length;index++) {
             var newa = document.createElement("A");
             newa.innerHTML = directories[index] + "/";

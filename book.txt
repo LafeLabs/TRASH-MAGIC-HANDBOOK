@@ -14,6 +14,7 @@
     "physical-hypertext.md",
     "private-server.md",
     "revolution.md",
+    "social-media-apps.md",
     "the-street.md",
     "the-watershed.md",
     "trash-magic-app-development.md",

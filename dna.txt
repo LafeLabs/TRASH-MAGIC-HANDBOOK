@@ -47,6 +47,7 @@
         "revolution.md",
         "riffs.html",
         "set.html",
+        "social-media-apps.md",
         "squares.html",
         "tarot.html",
         "tarot.js",
