@@ -138,11 +138,12 @@ inputs[1].onchange = function(){
 function addDeleteButtons(){
     dirlist = document.getElementById("mainlist").getElementsByTagName("LI");
     for(var index = 0;index < dirlist.length;index++){
-
-        var newdeletebutton = document.createElement("span");
-        newdeletebutton.innerHTML = "DELETE";
-        newdeletebutton.className = "button";
-        dirlist[index].appendChild(newdeletebutton);
+        if(dirlist[index].getElementsByTagName("A")[0].innerHTML != "../"){
+            var newdeletebutton = document.createElement("span");
+            newdeletebutton.innerHTML = "DELETE";
+            newdeletebutton.className = "button";
+            dirlist[index].appendChild(newdeletebutton);
+        }
     }
     
     deletebuttons = document.getElementById("mainlist").getElementsByClassName("button");
