@@ -9,23 +9,28 @@
  - [branch.html](branch.html)
 
 
-## [THE TRASH MAGIC HANDBOOK](https://github.com/LafeLabs/TRASH-MAGIC-HANDBOOK)
+
+# [THE TRASH MAGIC HANDBOOK](https://github.com/LafeLabs/TRASH-MAGIC-HANDBOOK)
 
 
- 1. [Introduction: What is Trash Magic?](read-markdown-file.php?filename=intro.md)
- 
-## The Trash Magic Software Stack
-
- 1. [HTML](read-markdown-file.php?filename=html.md)
- 2. [CSS](read-markdown-file.php?filename=css.md)
- 3. [JavaScript](read-markdown-file.php?filename=javascript.md)
- 4. [PHP](read-markdown-file.php?filename=php.md)
- 5. [Markdown: The Magic Book](read-markdown-file.php?filename=markdown.md)
- 6. [JSON](read-markdown-file.php?filename=json.md)
- 6. [Growing the Trash Magic Tree](read-markdown-file.php?filename=tree.md)
- 7. [Geometron: Geometric programming](read-markdown-file.php?filename=geometron.md)
- 8. [TRASH MAGIC SOCIAL MEDIA APPS](read-markdown-file.php?filename=social-media-apps.md)
- 9. [TRASH MAGIC SYSTEM APPS](read-markdown-file.php?filename=system-apps.md)
+ 1. [WHAT IS TRASH MAGIC?](intro.md)
+ 2. [TRASH MAGIC REVOLUTION](revolution.md)
+ 3. [TRASH MAGIC CARDBOARD](cardboard.md)
+ 4. [TRASH MAGIC TEXTILES]()
+ 5. [THE TRASH CLOUD]()
+ 8. [TRASH MAGIC SOCIAL MEDIA]()
+ 6. [TRASH MAGIC SERVERS]()
+ 7. [TRASH MAGIC DEVELOPMENT ENVIRONMENT]()
+ 1. [HTML](html.md)
+ 2. [CSS](css.md)
+ 3. [JavaScript](javascript.md)
+ 4. [PHP](php.md)
+ 5. [Markdown: The Magic Book](markdown.md)
+ 6. [JSON](json.md)
+ 6. [Growing the Trash Magic Tree](filename=tree.md)
+ 7. [Geometron: Geometric programming](geometron.md)
+ 8. [TRASH MAGIC SOCIAL MEDIA APPS](social-media-apps.md)
+ 9. [TRASH MAGIC SYSTEM APPS](system-apps.md)
 
 ## Trash Magic Social Media Apps
 

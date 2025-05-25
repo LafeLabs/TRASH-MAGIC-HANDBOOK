@@ -49,12 +49,6 @@ else{
 a{
     color:blue;
 }
-h1{
-    background-color:#404040;
-    width:90%;
-    margin:auto;
-    border-radius:1em;
-}
 pre{
   overflow:scroll;
 }
@@ -131,17 +125,35 @@ function loadscroll(scrollname){
             rawhtml = converter.makeHtml(scroll);
             document.getElementById("scrollscroll").innerHTML = rawhtml;
             //MathJax.Hub.Typeset();//tell Mathjax to update the math
-            
+
+/*            
             titles = document.getElementsByTagName("H1");
             for(var index = 0;index < titles.length;index++){
                 rainbowstring(titles[index]);    
             }
-
+            */
+            convertlinks();
         }
     };
     httpc666.open("GET", "load-file.php?filename=" + scrollname, true);
     httpc666.send();
     //MathJax.Hub.Typeset();//tell Mathjax to update the math
+}
+
+function convertlinks(){
+    linklist = document.getElementsByTagName("A");
+    for(var index = 0;index < linklist.length;index++){
+        if(linklist[index].href.includes(".md") && !linklist[index].href.includes("?")){
+            if(linklist[index].href.includes("/")){
+                scrollname = linklist[index].href.split("/")[linklist[index].href.split("/").length - 1];
+            }
+                else{
+                scrollname = linklist[index].href;
+            }
+            linklist[index].href = "read-markdown-file.php?filename=" + scrollname;
+            
+        }
+    }
 }
 
 
