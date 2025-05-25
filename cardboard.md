@@ -43,4 +43,49 @@ Cardboard signs can be augmented with QR codes using the Trash Magic QR Code app
 
 The Geometron Hypercube is both a virtual and physical thing. The virtual thing is the data structure on which the JavaScript Geometron library is based. The physical thing is a standard design of a 4 inch cube made of cardboard. 
 
-The cardboard cube can be used to store art supplies while we are making Trash Magic media. It can be used to store dirt and grow plants which can break out and smash and metabolioze the 
+The cardboard cube can be used to store art supplies while we are making Trash Magic media. It can be used to store dirt and grow plants which can break out and smash and metabolize the containers and turn them into soil eventually.  Also, the GEOMETRON HYPERCUBE has a 3 inch space inside it which 3 by 5 inch cardboard cards can be stacked and stored in.  
+
+Why a "hypercube"?  A hypercube is an extension of a cube into higher dimensions.  We imagine the set of all the cardboard cubes we make as being one vast geometric construction which spans the whole world. This construction taken as a single whole is a many dimensional constrction, since there are several(at least three) dimensions which describe the location of each cube in physical space. Thus the set of all cubes forms a kind of hyperspace, a very large space consisting of the total global state of the set of all cubes.
+
+The Hypercube construction and the squares and cards are all described on the [HYPERCUBE github repository](https://github.com/LAfeLabs/hypercube/).
+
+
+The [GEOMETRON HYPERCUBE](https://github.com/LAfeLabs/hypercube/) is constructed entirely from 4 inch cardboard squares. We therefore begin by simply making lots of those and turning them into a global network of social media. This is merely a very specific size and shape of cardboard sign, so it's an extension of the cardboard sign network described above. 
+
+These squares are then cut into two different patterns in order to make the puzzle pieces that fit together into a cube.
+
+For one cube, we will need five squares that we do not cut, which will form the outer panels, and 12 "side" patterns, shown below:
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/uploadimages/cardboardside.jpg)
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/symbolfeed/side.svg)
+
+
+As well as 3 "bottom" patterns, shown below:
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/uploadimages/cardboardbottom.jpg)
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/symbolfeed/bottom.svg)
+
+
+All the cuts are on a half inch grid, and can be marked out using Geometron and a laser cutter or using [THE UNIT, THE GREATEST RULER IN THE WORLD](https://the-unit.org/) or any other ruler in inches.  4 inches is about 10 cm, so if you are using metric you can work from there in relative scales.
+
+Sides and bottoms are stacked 3 high to make one solid bottom and four solid sides, and then they are assembled like a puzzle as shown here:
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/uploadimages/cardboardcorner.jpg)
+
+We then apply outer panels and use markers to make them into media, and deploy them in the world as shown:
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/uploadimages/touchgrass.jpg)
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/uploadimages/dandylion0.png)
+
+And we can use them to post up holders for 3 inch by 5 inch cards as shown here:
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/uploadimages/road3cubes.jpg)
+
+![](https://raw.githubusercontent.com/LafeLabs/hypercube/main/uploadimages/zoomcube3.jpg)
+
+
+We also use these cubes to make robots which can print on cardboard. These robots use the stepper motors found in DVD drives for the motion and use sharpies on bits of plastic and cardboard trash to poke a piece of cardboard to draw out a pixelated icon using Geometron code. These robots are available for free from a roboticist Trash Magician if you can find one in your area who can get to a common location on public Transit.  Or you can learn to become a robot maker and start giving out your own robots!
+
