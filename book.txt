@@ -2,6 +2,7 @@
     "README.md",
     "album.md",
     "book.md",
+    "cardboard.md",
     "css.md",
     "geometron.md",
     "html.md",
