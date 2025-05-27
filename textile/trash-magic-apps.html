@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <!--
+
+TRASH MAGIC!
+
+PUBLIC DOMAIN NO COPYRIGHT!
+
+SELF-REPLICATING HTML!
+
+CAPS LOCK ALWAYS ON!
+
+   -->
+   <!--Stop Google:-->
+   <META NAME="robots" CONTENT="noindex,nofollow">
+
+<link href="data:image/x-icon;base6r4,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon">
+
+   <title>TRASH MAGIC APPS!</title>    
+   <script src = "trashmagic.js"></script>
+   <link rel="stylesheet" href="trashmagic.css">
+   <script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<style>
+    #wall{
+        width:80%;
+        display:block;
+        margin:auto;
+        border:solid;
+        FONT-FAMILY:COMIC SANS MS;
+        BACKGROUND-COLOR:#9f8767;
+        font-size:2em;
+        height:20em;
+        padding:0.5em 0.5em 0.5em 0.5em;
+        border-radius:0.5em;
+    }
+    #freebox img{
+        border:solid;
+        border-radius:1em;
+        border-width:5px;
+    }
+</style>
+<body>    
+
+    <div id = "qrcode"></div>
+    <H1>TRASH MAGIC APPS!</H1>
+    <A HREF = "index.html">HOME</A>
+    <DIV ID = "HTMLSET"></DIV>
+
+<script>
+
+titles = document.getElementsByTagName("H1");
+for(var index = 0;index < titles.length;index++){
+    rainbowstring(titles[index]);    
+}
+rainbow(document.getElementsByTagName("A"));
+
+codesquaresize = 170;
+marginsize = 40;
+fontsize = 12;
+//globalurl = "http://www.trashrobot.org/qrcode.html";
+globalurl = window.location.href;
+qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: globalurl,
+	width: codesquaresize,
+	height: codesquaresize,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+
+
+pages = [];
+var httpc666 = new XMLHttpRequest();
+httpc666.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        pages = JSON.parse(this.responseText);
+        for(var index = 0;index < pages.length;index++){
+            if(pages[index].substring(pages[index].length-5,pages[index].length) == ".html" || pages[index].substring(pages[index].length-5,pages[index].length) == ".HTML"){
+                var newa = document.createElement("A");
+                newa.href = pages[index];
+                newa.innerHTML = pages[index];
+                document.getElementById("HTMLSET").appendChild(newa);
+
+            }
+
+        }
+        rainbow(document.getElementsByTagName("a"));       
+    }
+};
+
+httpc666.open("GET", "list-files.php", true);
+httpc666.send();
+
+</script>
+</body>
+</html>
+
+
+    
+    

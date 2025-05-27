@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<!--
+
+GEOMETRON/TRASH MAGIC!
+
+NO MONEY!
+NO MINING!
+NO PROPERTY!
+    
+EVERYTHING IS PHYSICSAL!
+EVERYTHING IS FRACTAL!
+EVERYTHING IS RECURSIVE!
+
+LOOK AT THE INSECTS!
+LOOK AT THE FUNGI!
+LANGUAGE IS HOW THE MIND PARSES REALITY!
+
+
+
+CAPS LOCK ALWAYS ON!
+
+USE CARDBOARD TRASH TO SPREAD THE MEMES!
+
+USE STICKS TO SPREAD THE MEMES!
+
+
+-->
+
+<head>
+    
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACe8wAAnHMAAO7vAAD//wAA+D8AAPu/AADauwAAirEAANq7AAD7vwAA8B8AAPx/AADv7wAAnvMAAJxzAAD+/wAA" rel="icon" type="image/x-icon" />
+    
+    
+   <!--Stop Google:-->
+   <META NAME="robots" CONTENT="noindex,nofollow">
+    
+    
+    <meta charset="utf-8" />
+        <!--
+
+    WEBAMP is a JavaScript Library which brings back the magic of winamp!
+    
+    Winamp was the mp3 player of choice for a whole lot of the Napster generation, sharing music back in the 90s.
+    
+    I WAS THERE, GANDALF! I WAS THERE 3000 YEARS AGO!
+    
+        https://webamp.org/ has the information on web amp
+        
+    main code page for the project:
+    
+        https://github.com/captbaritone/webamp
+        
+    api reference:
+        
+        https://github.com/captbaritone/webamp/blob/master/packages/webamp/docs/usage.md
+        
+    webamp skins museum:
+    
+        https://skins.webamp.org/
+        
+        -->
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/webamp@1.4.2/built/webamp.bundle.min.js"></script>
+        <script src="https://unpkg.com/butterchurn@2.6.7/lib/butterchurn.min.js"></script>
+    <script src="https://unpkg.com/butterchurn-presets@2.4.7/lib/butterchurnPresets.min.js"></script>
+    
+       <script src = "trashmagic.js"></script>
+</head>
+<body>
+<style>
+    body{
+    overflow:hidden;
+    background-color:#5050ff;    
+    font-family:Comic Sans MS;
+}
+#mainscroll{
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    top:0px;
+    overflow:scroll;
+    color:#00ff00;
+    font-family:courier;
+    z-index:0;
+}
+pre{
+    font-family:courier;
+}
+h1{
+    text-align:center;
+    font-size:4em;
+    font-family:helvetica;
+}
+p{
+    text-align:justify;
+    padding:1em 1em 1em 1em;
+    font-size:1.5em;
+    border:solid;
+    display:block;
+    border-color:white;
+    border-width:10px;
+    border-radius:1em;
+    background-color:#0000ff;
+    color:white;
+    width:80%;
+    margin:auto;
+    margin-top:1em;
+
+}
+#mainscroll a{
+    text-align:center;
+    font-family:helvetica;
+    font-size:3em;
+    width:80%;
+    margin:auto;
+    display:block;
+    border:solid;
+    border-radius:0.5em;
+    border-width:0.5em;
+    color:black;
+    margin-top:1em;
+    margin-bottom:0.5em;
+    overflow-x:scroll;
+}
+img{
+    display:block;
+    max-width:50%;
+    margin:auto;
+    margin-top:2em;
+    margin-bottom:2em;
+    background-color:#B0916E;
+}
+@media only screen and (orientation: portrait) {
+    #mainscroll{
+        top:50%;
+    }
+}
+@media only screen and (orientation: landscape) {
+
+    #mainscroll{
+        left:50%;
+    }
+    
+}
+</style>    
+<div id="app" style = "position:absolute;left:0px;top:0px">
+    <!-- Webamp will attempt to center itself within this div -->
+</div>
+
+<div id = "mainscroll">
+    
+        <div id = "qrcode"></div>
+
+        <h1>Trash Magic Webamp Album</h1>
+    
+    <!--
+    images here
+    -->
+
+        <a href = "index.html">home</a>
+        <div id = "qrcode"></div>
+
+</div>
+<script>
+const Webamp = window.Webamp;
+const webamp = new Webamp({
+    initialTracks: [
+    ],
+    // Optional. The default skin is included in the js bundle, and will be loaded by default.
+//        initialSkin: {
+        // NOTE: Your skin file must be served from the same domain as your HTML
+        // file, or served with permissive CORS HTTP headers:
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+        // Can be downloaded from https://github.com/captbaritone/webamp/raw/master/skins/TopazAmp1-2.wsz
+//              url: "skins/Matrix_by_sukhi.wsz"
+//            },
+    availableSkins: [
+//      { url: "./osx.wsz", name: "Mac OSX v1.5 (Aqua)" }
+    ],
+    __butterchurnOptions: {
+        importButterchurn: () => Promise.resolve(window.butterchurn),
+        getPresets: () => {
+            const presets = window.butterchurnPresets.getPresets();
+            return Object.keys(presets).map((name) => {
+                return {
+                    name,
+                    butterchurnPresetObject: presets[name]
+                };
+            });
+        },
+        butterchurnOpen: true
+    },
+    __initialWindowLayout: {
+        main: { position: { x: 0, y: 0 } },
+        equalizer: { position: { x: 0, y: 116 } },
+        playlist: { position: { x: 0, y: 232 }, size: [0, 4] },
+        milkdrop: { position: { x: 275, y: 0 }, size: [7, 12] }
+    }
+});
+
+// Returns a promise indicating when it's done loading.
+webamp.renderWhenReady(document.getElementById('app'));
+
+files = [];
+var httpcimages = new XMLHttpRequest();
+httpcimages.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        files = JSON.parse(this.responseText);
+        tracks = [];
+        for(var index = 0;index < files.length;index++){
+            if(files[index].substring(files[index].length-4,files[index].length) == ".mp3" || files[index].substring(files[index].length-4,files[index].length) == ".wav"){
+                var track = {};
+                track.url =  files[index];
+                tracks.push(track);
+            }
+        }
+        webamp.appendTracks(tracks);
+    }
+};
+httpcimages.open("GET", "list-files.php", true);
+httpcimages.send();
+
+
+titles = document.getElementsByTagName("H1");
+for(var index = 0;index < titles.length;index++){
+    rainbowstring(titles[index]);    
+}
+
+//googleyeyes(12);
+
+rainbow(document.getElementsByTagName("A"));
+
+</script>
+</body>
+<style>
+
+</style>
+</html>
