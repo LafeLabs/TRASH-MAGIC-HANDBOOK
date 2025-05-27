@@ -8,6 +8,7 @@
  - [trash-magic.html](trash-magic.html)
  - [branch.html](branch.html)
  - [cardboard-sign.html](cardboard-sign.html)
+ - [fly-the-black-flag.html](fly-the-black-flag.html)
 
 
 
@@ -17,7 +18,7 @@
  1. [WHAT IS TRASH MAGIC?](intro.md)
  2. [TRASH MAGIC REVOLUTION](revolution.md)
  3. [TRASH MAGIC CARDBOARD](cardboard.md)
- 4. [TRASH MAGIC TEXTILES]()
+ 4. [TRASH MAGIC TEXTILES](textile.md)
  5. [THE TRASH CLOUD]()
  8. [TRASH MAGIC SOCIAL MEDIA]()
  6. [TRASH MAGIC SERVERS]()
@@ -53,6 +54,8 @@
 14. [album.html](album.html)
 15. [album-webamp.html](album-webamp.html)
 16. [pdf-library.html](pdf-library.html)
+17. [cardboard-sign.html](cardboard-sign.html)
+18. [fly-the-black-flag.html](fly-the-black-flag.html)
 17. [trash-magic-apps.html](trash-magic-apps.html)
 
 ## Trash Magic System Apps

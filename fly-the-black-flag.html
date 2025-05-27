@@ -85,7 +85,7 @@ a{
     bottom:95px;
     top:100px;
     overflow:hidden;
-    background-color:#9f8767;    
+    background-color:black;    
 }
 #wall{
     position:absolute;
@@ -95,8 +95,9 @@ a{
     width:100%;
     top:0px;
     overflow:scroll;
-    font-family:Comic Sans MS;
-    background-color:#9f8767;    
+    font-family:Arial;
+    background-color:black;
+    color:#ff2cb4;
     z-index:1;
 }
 #header{
@@ -217,7 +218,7 @@ a{
     <div class = "bottombutton" id = "clearbutton">CLEAR</div>
     <div class = "bottombutton" id = "colorbutton">COLOR</div>
     
-    <form id = "uploadform" action="upload-cardboard-sign.php" method="post" enctype="multipart/form-data">
+    <form id = "uploadform" action="upload-black-flag.php" method="post" enctype="multipart/form-data">
                 <span id ="uploadspan">UPLOAD:</span>
         <input type="file" name="fileToUpload" id="fileToUpload">
         <input type="submit" value="Upload Image" name="submit" id ="submitinput">
@@ -240,6 +241,7 @@ document.getElementById("feed-button").onclick = function(){
     document.getElementById("clearbutton").style.display = "none";
     document.getElementById("postbutton").style.display = "none";
     document.getElementById("uploadform").style.display = "block";
+    document.getElementById("colorbutton").style.display = "none";
     
 }
 document.getElementById("wall-button").onclick = function(){
@@ -253,6 +255,8 @@ document.getElementById("wall-button").onclick = function(){
     document.getElementById("postbutton").style.display = "block";
     document.getElementById("uploadform").style.display = "none";
 
+    document.getElementById("colorbutton").style.display = "none";
+
 }
 
 document.getElementById("draw-button").onclick = function(){
@@ -265,6 +269,7 @@ document.getElementById("draw-button").onclick = function(){
     document.getElementById("clearbutton").style.display = "block";
     document.getElementById("postbutton").style.display = "block";
     document.getElementById("uploadform").style.display = "none";
+    document.getElementById("colorbutton").style.display = "block";
 
     
 }
@@ -300,8 +305,8 @@ lineArray =[];
 
 function setup() {
     createCanvas(innerWidth, innerHeight - 200);
-    background(159,135,103);
-    stroke(0);
+    background(0);
+    stroke("#ff2cb4");
     strokeWeight(20);
     textSize((innerHeight-220)/20);
     noFill();
@@ -311,7 +316,7 @@ inLine = false;
 
 function draw() {
   
-  stroke(0);
+  stroke("#ff2cb4");
   if (mouseIsPressed === true) {
     line(mouseX, mouseY, pmouseX, pmouseY);
     inLine = true;
@@ -340,7 +345,7 @@ rainbowcolors =[
 
 document.getElementById("colorbutton").onclick = function(){
     clear();
-    background(159,135,103);
+    background(0);
     for(var lineindex = 0;lineindex < lineArrayStack.length;lineindex++){
         fill(rainbowcolors[lineindex%6]);
         beginShape();
@@ -356,7 +361,7 @@ document.getElementById("colorbutton").onclick = function(){
 document.getElementById("deletebutton").onclick = function(){
     lineArrayStack.pop();
     clear();
-    background(159,135,103);
+    background(0);
     for(var lineindex = 0;lineindex < lineArrayStack.length;lineindex++){
         for(var pointindex = 1;pointindex < lineArrayStack[lineindex].length;pointindex++){
             line(lineArrayStack[lineindex][pointindex - 1].x,lineArrayStack[lineindex][pointindex - 1].y,lineArrayStack[lineindex][pointindex].x,lineArrayStack[lineindex][pointindex].y);
@@ -369,7 +374,7 @@ document.getElementById("deletebutton").onclick = function(){
 document.getElementById("clearbutton").onclick = function(){
     lineArrayStack = [];
     clear();
-    background(159,135,103);
+    background(0);
 }
 
 
@@ -381,7 +386,7 @@ document.getElementById("postbutton").onclick = function(){
     
     if(textmode){
         strokeWeight(1);
-        fill(0);
+        fill("#ff2cb4");
         text(document.getElementById("wall").value,10,(innerHeight-220)/20);
         strokeWeight(30);
 
@@ -394,10 +399,10 @@ document.getElementById("postbutton").onclick = function(){
     var url = "save-png.php";        
     httpc.open("POST", url, true);
     httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    httpc.send("data="+encodeURIComponent(png64.substring(22))+"&filename=cardboard-sign-" + timestamp +  ".png");//send text to filesaver.php
+    httpc.send("data="+encodeURIComponent(png64.substring(22))+"&filename=black-flag-" + timestamp +  ".png");//send text to filesaver.php
      //location.reload(); 
      
-    newfilename = "cardboard-sign-" + timestamp +  ".png";
+    newfilename = "black-flag-" + timestamp +  ".png";
     
     var newbox = document.createElement("DIV");
     newbox.classList.add("imagebox");         
@@ -443,7 +448,7 @@ var httpc9 = new XMLHttpRequest();
     if (this.readyState == 4 && this.status == 200) {
         upuploadImages = JSON.parse(this.responseText);
         for(var index = upuploadImages.length - 1;index >= 0;index--) {
-            if(upuploadImages[index].includes(".png") && upuploadImages[index].includes("cardboard-sign-")){
+            if(upuploadImages[index].includes(".png") && upuploadImages[index].includes("black-flag-")){
                 var newbox = document.createElement("DIV");
                 newbox.classList.add("imagebox");         
                 

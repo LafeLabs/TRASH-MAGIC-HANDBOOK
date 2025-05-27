@@ -16,6 +16,7 @@
     "private-server.md",
     "revolution.md",
     "social-media-apps.md",
+    "textile.md",
     "the-street.md",
     "the-watershed.md",
     "trash-magic-app-development.md",

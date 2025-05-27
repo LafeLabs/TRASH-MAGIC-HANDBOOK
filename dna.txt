@@ -20,6 +20,7 @@
         "edit-index.html",
         "edit-php.html",
         "edit-qrcode-list.html",
+        "fly-the-black-flag.html",
         "freebox.html",
         "gaussian-squares.html",
         "geometron-squares.html",
@@ -53,6 +54,7 @@
         "squares.html",
         "tarot.html",
         "tarot.js",
+        "textile.md",
         "the-street.md",
         "the-watershed.md",
         "track-list.js",
@@ -95,6 +97,7 @@
         "replicator.txt",
         "save-file.txt",
         "save-png.txt",
+        "upload-black-flag.txt",
         "upload-cardboard-sign.txt",
         "upload-image.txt"
     ]
