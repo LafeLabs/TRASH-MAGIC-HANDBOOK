@@ -19,6 +19,7 @@
  2. [TRASH MAGIC REVOLUTION](revolution.md)
  3. [TRASH MAGIC CARDBOARD](cardboard.md)
  4. [TRASH MAGIC TEXTILES](textile.md)
+ 5. [FREE BOOK](free-book.md)
  5. [THE TRASH CLOUD]()
  8. [TRASH MAGIC SOCIAL MEDIA]()
  6. [TRASH MAGIC SERVERS]()
