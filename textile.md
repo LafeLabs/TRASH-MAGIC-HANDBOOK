@@ -34,6 +34,12 @@ For clothes made from trash, the clothes are the meme! The prototype meme is FRE
 
 Here is an image of some free pants:
 
-![]()
+![](https://raw.githubusercontent.com/LafeLabs/TRASH-MAGIC-HANDBOOK/refs/heads/main/textile/FREE-PANTS.png)
+
+
+In practice we want to use Trash Magic textile hypertext together with the Trash Magic textile memes, pointing web pages to pants and pants to web pages.  Everything in the system should point to the path to replicate everything else in the system.  
+
+As we scale up Trash Magic, we can start to make a more systematic system for creating more complex fashion elements.  Incoming cloth can be cut up and stitched together by networks of robots, and then we can scan peoples bodies in 3d and design garments with networks of [UV maps](https://en.wikipedia.org/wiki/UV_mapping) of  triangles created in Blender to make any kind of garment fit to any body in any kind of way.  Ultimately we need to build a global network of flowing textile waste which creates a global network of flowing free clothes and hypertext which can in turn grow the network.  We will use self-replicating textile products made of trash to create a global organic network which is an extension of all the other networks described in this work.  
+
 
 
