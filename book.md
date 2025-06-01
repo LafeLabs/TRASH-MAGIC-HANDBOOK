@@ -6,6 +6,7 @@
  - [edit-index.html](edit-index.html)
  - [edit-php.html](edit-php.html)
  - [trash-magic.html](trash-magic.html)
+ - [copy-book.html](copy-book.html)
  - [branch.html](branch.html)
  - [cardboard-sign.html](cardboard-sign.html)
  - [fly-the-black-flag.html](fly-the-black-flag.html)
