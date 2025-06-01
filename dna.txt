@@ -92,6 +92,7 @@
         "generate-dna.txt",
         "list-branches.txt",
         "list-files.txt",
+        "list-markdown-files.txt",
         "load-file.txt",
         "local-replicator.txt",
         "print-markdown-file.txt",
