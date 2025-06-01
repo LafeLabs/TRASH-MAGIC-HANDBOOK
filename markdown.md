@@ -67,9 +67,14 @@ Trash Magic Markdown apps
  
  - [edit-markdown-file.php](edit-markdown-file.php)
  - [edit-book.html](edit-book.html)
+ - [delete-markdown.html](delete-markdown.html)
  - [read-book.html](read-book.html)
  - [readme.html](readme.html)
  - [README.md](README.md)
  - [read-markdown-file.php](read-markdown-file.php)
  - [read-book-mathjax.html](read-book-mathjax.html)
+ - [list-markdown-files.php](list-markdown-files.php)
+ 
+
+To generate a "book", which is a set of Markdown files that all replicate together, we can generate a markdown file list as the JSON file [markdown-file-list.txt](markdown-file-list.txt) using [list-markdown-files.php](list-markdown-files.php).  Then we can use the global or local network url for replication of the set using the app [copy-book.html](copy-book.html)
  

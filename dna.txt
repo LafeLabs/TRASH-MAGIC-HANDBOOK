@@ -33,7 +33,6 @@
         "javascript.md",
         "json.md",
         "letter-to-content-creators.md",
-        "markdowd-files-list.txt",
         "markdown.md",
         "math.html",
         "noise-band.html",
