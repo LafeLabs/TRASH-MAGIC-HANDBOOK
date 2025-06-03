@@ -1,0 +1,28 @@
+{
+    "html": [
+        "README.md",
+        "delete-html.html",
+        "delete-php.html",
+        "dna.txt",
+        "edit-html.html",
+        "edit-index.html",
+        "edit-php.html",
+        "index.html",
+        "qrcode-page.html",
+        "qrcode.html",
+        "readme.html"
+    ],
+    "php": [
+        "branch.txt",
+        "compile-php.txt",
+        "delete-branch.txt",
+        "delete-file.txt",
+        "generate-dna.txt",
+        "list-branches.txt",
+        "list-files.txt",
+        "load-file.txt",
+        "local-replicator.txt",
+        "replicator.txt",
+        "save-file.txt"
+    ]
+}

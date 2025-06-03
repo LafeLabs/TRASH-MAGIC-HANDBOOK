@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+    COPY BOOK!
+    
+    -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+       <script src = "trashmagic.js"></script>
+       
+</head>
+<style>
+body{
+    overflow:scroll;
+    background-color:#808080;
+    font-family:Arial;
+}
+a{
+    color:blue;
+}
+</style>
+<body>    
+<h1>BOOK REPLICATION TRASH MAGIC APP</h1>
+<table>
+<tr>
+    <td>BOOK URL TO COPY FROM:</td>
+    <TD>
+        <INPUT ID = "bookurlinput">
+    </TD>
+    <TD>
+        <A ID = "copybooklink"></A>
+    </TD>
+</tr>
+<tr>
+    <td>THIS BOOK URL ON THIS SERVER HERE:</td>
+    <TD>
+        <a ID = "thisbookurl"></a>
+    </TD>
+</tr>
+<tr>
+    <td>
+        <A HREF= "index.html">index.html</A>
+    </td>
+</tr>
+<tr>
+    <td>
+        <a href = "read-book.html">read-book.html</a>
+    </td>
+</tr>
+</table>
+
+<script>
+titles = document.getElementsByTagName("H1");
+for(var index = 0;index < titles.length;index++){
+    rainbowstring(titles[index]);    
+}
+
+thisurl = window.location.href;
+document.getElementById("thisbookurl").innerHTML = thisurl.split("copy-book.html")[0] + "book.txt";
+document.getElementById("thisbookurl").href = thisurl.split("copy-book.html")[0] + "book.txt";
+
+document.getElementById("bookurlinput").onchange = function(){
+    bookurl = this.value;
+    document.getElementById("copybooklink".href = "copy-book.php?bookurl=" + bookurl)
+}
+</script>
+
+</body>
+</html>
