@@ -20,6 +20,9 @@
 <a id = "othertoplink" href = "qrcode-page.html">qrcode-page.html</a>
 <table>
     <tr>
+        <td colspan="2" id = "savebutton" class= "button">save qrcode.png</td>
+    </tr>
+    <tr>
         <td>URL:</td>
         <td><input id = "urlinput"/></td>
     </tr>
@@ -49,6 +52,15 @@ document.getElementById("urlinput").onchange = function(){
     
 }
 
+document.getElementById("savebutton").onclick = function(){
+    png64 = document.getElementsByTagName("IMG")[0].src;
+    var httpc = new XMLHttpRequest();
+    var url = "save-png.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpc.send("data="+encodeURIComponent(png64.substring(22))+"&filename=qrcode.png");//send text to filesaver.php
+     //location.reload(); 
+}
 
 document.getElementById("linklink").href = globalurl;
 document.getElementById("linklink").innerHTML = globalurl;
@@ -71,6 +83,7 @@ qrcode = new QRCode(document.getElementById("qrcode"), {
 input{
     border:solid;
     font-family:Comic Sans MS;
+    width:20em;
 }
 body{
     font-family:Comic Sans MS;

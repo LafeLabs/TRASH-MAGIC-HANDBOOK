@@ -1,16 +1,21 @@
 {
     "html": [
         "README.md",
+        "branch.html",
         "delete-html.html",
         "delete-php.html",
         "dna.txt",
         "edit-html.html",
         "edit-index.html",
         "edit-php.html",
+        "freebox.html",
         "index.html",
         "qrcode-page.html",
         "qrcode.html",
-        "readme.html"
+        "readme.html",
+        "trashmagic.css",
+        "trashmagic.html",
+        "trashmagic.js"
     ],
     "php": [
         "branch.txt",
@@ -23,6 +28,8 @@
         "load-file.txt",
         "local-replicator.txt",
         "replicator.txt",
-        "save-file.txt"
+        "save-file.txt",
+        "save-png.txt",
+        "upload-image.txt"
     ]
 }
