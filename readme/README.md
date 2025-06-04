@@ -1,4 +1,4 @@
-# [SELF-REPLICATING README]()
+# [SELF-REPLICATING README](https://github.com/LafeLabs/TRASH-MAGIC-HANDBOOK/tree/main/readme)
   
   ![](qrcode.png)
   
