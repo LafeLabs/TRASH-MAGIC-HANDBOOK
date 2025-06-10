@@ -15,4 +15,3 @@
    - [DOWNLOAD GITHUB DESKTOP](https://desktop.github.com/download/)
    - [GET A GITHUB ACCOUNT](https://github.com/)
    - [INSTALL XAMPP](https://www.apachefriends.org/)
-   
